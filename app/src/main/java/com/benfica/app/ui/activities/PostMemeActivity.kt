@@ -55,7 +55,10 @@ class PostMemeActivity : BaseActivity() {
         postAddImage.setOnClickListener {
             AppUtils.requestStoragePermission(this) { granted ->
                 if (granted) {
+                  //  val galleryIntent = Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
                     val galleryIntent = Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+
+                    galleryIntent.setType("image/* video/*");
                     startActivityForResult(galleryIntent, GALLERY_REQUEST)
                 } else longToast("Storage permission is required to select Avatar")
             }
@@ -105,6 +108,8 @@ class PostMemeActivity : BaseActivity() {
     /**
      * Function to post new Meme
      */
+
+
     private fun postMeme() {
         if (!Connectivity.isConnected(this)) {
             toast("Please turn on your internet connection")
@@ -120,12 +125,23 @@ class PostMemeActivity : BaseActivity() {
             toast("Please select a meme")
             return
         }
+        if (postCaption.text.toString().trim().isEmpty()) {
+            toast("Please write something")
+            postCaption.setError("Please write something")
+            return
+        }
+        if (postTag.text.toString().trim().isEmpty()) {
+            toast("Please add #tag")
+            postTag.setError("Please add #tag")
+            return
+        }
+       // ThumbnailUtils.createVideoThumbnail(File((imageUri as Uri).path), Size(100,100),null)
 
         // Create new meme object
         val meme = Meme()
         meme.caption = postCaption.text.toString().trim()
         meme.city = postCity.text.toString().trim()
-        meme.hashTag = postTag.text.toString().trim()
+        meme.hashTag = "#${postTag.text.toString().trim()}"
         meme.likesCount = 0
         meme.commentsCount = 0
         meme.memePoster = sessionManager.getUsername()
@@ -159,7 +175,10 @@ class PostMemeActivity : BaseActivity() {
 
         if (requestCode == GALLERY_REQUEST && resultCode == Activity.RESULT_OK) {
             data.let { imageUri = it!!.data }
+          //  if(imageUri.toString().contains("image"))
             startCropActivity(imageUri!!)
+         //   else
+          //      imageSelected=true
         }
 
         if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {

@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/memeTop"
-            android:layout_marginTop="5dp">
+            android:layout_margin="5dp">
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/memeIcon"
@@ -47,7 +47,7 @@
                 android:gravity="center_vertical"
                 android:orientation="vertical"
                 android:layout_toEndOf="@+id/memeIcon"
-                android:layout_toStartOf="@id/memeMore"
+                android:layout_toStartOf="@id/memeTag"
                 android:layout_marginEnd="10dp"
                 android:layout_marginStart="10dp"
                 android:layout_centerVertical="true">
@@ -71,19 +71,30 @@
                     android:visibility="visible"
                     bind:text="@{timeFormatter.getTimeStamp(safeUnbox(meme.time))}"
                     android:textColor="@color/color_text_secondary"/>
+                <TextView
+                    android:id="@+id/memeCIty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/notif_time"
+                    android:layout_marginTop="1dp"
+                    bind:visibility="@{meme.city != null &amp;&amp; meme.city != `` &amp;&amp; meme.city != ` `}"
+                    android:text="@{meme.city}"
+                    android:textColor="@color/color_text_secondary"/>
 
             </LinearLayout>
 
-            <ImageButton
-                android:id="@+id/memeMore"
+            <TextView
+                android:id="@+id/memeTag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
                 android:layout_alignParentEnd="true"
                 android:background="@android:color/transparent"
-                android:contentDescription="@string/content_image_button"
                 android:layout_centerVertical="true"
-                android:visibility="invisible"
+                android:textColor="@color/color_secondary"
+               android:text="@{meme.hashTag}"
+
+
         />
 
         </RelativeLayout>
@@ -99,7 +110,8 @@
             android:textSize="15sp"
             bind:visibility="@{meme.caption != null &amp;&amp; meme.caption != `` &amp;&amp; meme.caption != ` `}"
             android:text="@{meme.caption}"
-            android:visibility="gone"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
             android:textColor="@color/color_text_primary"/>
         <com.benfica.app.utils.SquareLayout
             android:layout_width="match_parent"

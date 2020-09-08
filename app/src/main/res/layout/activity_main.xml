@@ -61,7 +61,7 @@
         android:layout_marginBottom="12dp"
         app:srcCompat="@drawable/ic_add_black_24dp"
         app:elevation="16dp"
-        app:backgroundTint="@color/color_secondary"
+        app:backgroundTint="@color/color_favorite"
         app:tint="@android:color/white"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

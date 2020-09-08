@@ -78,6 +78,16 @@
                     tools:text="3 minutes ago"
                     bind:text="@{timeFormatter.getTimeStamp(safeUnbox(meme.time))}"
                     android:textColor="@color/color_text_secondary"/>
+                <TextView
+                    android:id="@+id/memeCIty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/notif_time"
+                    android:layout_marginTop="1dp"
+                    tools:text="Chandigarh"
+                    bind:visibility="@{meme.city != null &amp;&amp; meme.city != `` &amp;&amp; meme.city != ` `}"
+                    android:text="@{meme.city}"
+                    android:textColor="@color/color_text_secondary"/>
 
             </LinearLayout>
 
@@ -106,15 +116,29 @@
             tools:text="Do y'all agree with this?"
             bind:visibility="@{meme.caption != null &amp;&amp; meme.caption != `` &amp;&amp; meme.caption != ` `}"
             android:text="@{meme.caption}"
-            android:visibility="gone"
             android:textColor="@color/color_text_primary"/>
+
+        <TextView
+            android:id="@+id/memeTag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="5"
+            android:ellipsize="end"
+            android:layout_below="@id/memeCaption"
+            android:layout_marginTop="12dp"
+            android:textSize="15sp"
+            tools:text="Do y'all agree with this?"
+            bind:visibility="@{meme.hashTag != null &amp;&amp; meme.hashTag != `` &amp;&amp; meme.hashTag != ` `}"
+            android:text="@{meme.hashTag}"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/color_secondary"/>
 
         <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/memeImage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:layout_below="@id/memeCaption"
+            android:layout_below="@id/memeTag"
             android:contentDescription="@string/content_image"
             android:scaleType="fitXY"
             android:adjustViewBounds="true"

@@ -11,6 +11,8 @@ data class Fave(
         var likesCount: Int = 0,
         var commentsCount: Int = 0,
         var time: Long? = null,
+        var hashTag: String? = null,
+        var city: String? = null,
         var likes: MutableMap<String, Boolean> = mutableMapOf(),
         var faves: MutableMap<String, Boolean> = mutableMapOf()
 ): Serializable {

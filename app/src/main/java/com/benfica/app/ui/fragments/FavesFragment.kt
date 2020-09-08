@@ -13,11 +13,11 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.benfica.app.R
 import com.benfica.app.data.Status
 import com.benfica.app.data.events.PostMemeEvent
+import com.benfica.app.data.models.Fave
+import com.benfica.app.databinding.FragmentFavesBinding
 import com.benfica.app.ui.activities.ViewMemeActivity
 import com.benfica.app.ui.adapters.FavesAdapter
 import com.benfica.app.ui.base.BaseFragment
-import com.benfica.app.data.models.Fave
-import com.benfica.app.databinding.FragmentFavesBinding
 import com.benfica.app.ui.callbacks.FavesCallback
 import com.benfica.app.ui.viewmodels.MemesViewModel
 import com.benfica.app.utils.*
@@ -61,7 +61,7 @@ class FavesFragment : BaseFragment() {
 
         favesRv.apply {
             setHasFixedSize(true)
-            layoutManager = GridLayoutManager(activity!!, 2)
+            layoutManager = GridLayoutManager(activity!!, 1)
             addItemDecoration(RecyclerFormatter.GridItemDecoration(activity!!, R.dimen.grid_layout_margin))
             adapter = favesAdapter
             AppUtils.handleHomeScrolling(this)

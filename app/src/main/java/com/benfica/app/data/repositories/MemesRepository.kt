@@ -297,6 +297,8 @@ class MemesRepository constructor(private val firestoreDatabase: FirebaseFiresto
                 fave.time = meme.time!!
                 fave.caption = meme.caption!!
                 fave.memePoster = meme.memePoster!!
+                fave.city = meme.city
+                fave.hashTag = meme.hashTag
                 fave.memePosterAvatar = meme.memePosterAvatar!!
                 firestoreDatabase.collection(Constants.FAVORITES)
                         .document(userId)
