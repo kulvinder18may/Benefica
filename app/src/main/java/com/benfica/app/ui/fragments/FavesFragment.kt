@@ -61,7 +61,7 @@ class FavesFragment : BaseFragment() {
 
         favesRv.apply {
             setHasFixedSize(true)
-            layoutManager = GridLayoutManager(activity!!, 3)
+            layoutManager = GridLayoutManager(activity!!, 2)
             addItemDecoration(RecyclerFormatter.GridItemDecoration(activity!!, R.dimen.grid_layout_margin))
             adapter = favesAdapter
             AppUtils.handleHomeScrolling(this)
@@ -126,6 +126,10 @@ class FavesFragment : BaseFragment() {
         override fun onFaveClick(view: RoundedImageView, meme: Fave, longClick: Boolean) {
             if (longClick) handleLongClick(meme.id!!)
             else handleClick(meme.imageUrl!!, (view.drawable as RoundedDrawable).sourceBitmap)
+        }
+
+        override fun onCommentClicked(view: View, meme: Fave) {
+
         }
     }
 

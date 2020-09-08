@@ -56,6 +56,8 @@
     <string name="hint_confirm_password">Confirm Password</string>
     <string name="hint_new_comment">Add new comment…</string>
     <string name="hint_caption">Write caption…</string>
+    <string name="hint_city">City</string>
+    <string name="hint_hashtag">#tag</string>
 
     <!-- Empty State labels-->
     <string name="empty_faves">No favorites found</string>
@@ -91,5 +93,6 @@
     <string name="native_main_image">native_main_image</string>
     <string name="learn_more">Learn More</string>
     <string name="native_privacy_information_icon_image">Privacy Information Icon image</string>
+    <string name="google_signin_key">629635596784-u2ti75tg2me645fg9r4v09nimkd8op80.apps.googleusercontent.com</string>
 
 </resources>

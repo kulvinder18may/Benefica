@@ -13,6 +13,8 @@ data class Meme(
         var memePosterAvatar: String? = null,
         var memePosterID: String? = null,
         var thumbnail: String? = null,
+        var hashTag: String? = null,
+        var city: String? = null,
         var muted: Boolean = false,
         var likes: MutableMap<String, Boolean> = mutableMapOf(),
         var faves: MutableMap<String, Boolean> = mutableMapOf()

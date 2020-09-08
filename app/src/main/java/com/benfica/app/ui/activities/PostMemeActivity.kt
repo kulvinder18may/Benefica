@@ -91,6 +91,7 @@ class PostMemeActivity : BaseActivity() {
                     showSelectImage()
                     sessionManager.hasNewContent(true)
                     toast("Meme posted \uD83E\uDD2A\uD83E\uDD2A")
+                    finish()
                 }
 
                 Status.ERROR -> {
@@ -123,6 +124,8 @@ class PostMemeActivity : BaseActivity() {
         // Create new meme object
         val meme = Meme()
         meme.caption = postCaption.text.toString().trim()
+        meme.city = postCity.text.toString().trim()
+        meme.hashTag = postTag.text.toString().trim()
         meme.likesCount = 0
         meme.commentsCount = 0
         meme.memePoster = sessionManager.getUsername()

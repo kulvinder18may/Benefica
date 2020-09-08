@@ -144,7 +144,7 @@ class UsersRepository constructor(private val firestoreDatabase: FirebaseFiresto
     suspend fun loginWithGoogle(account: GoogleSignInAccount): Result<GoogleLoginResponse> {
         val credential = GoogleAuthProvider.getCredential(account.idToken, null)
         val result = firebaseAuth.signInWithCredential(credential).await()
-
+        println(">>>>>>>>>>>>>>${result.toString()}")
         return try {
             Result.Success(GoogleLoginResponse.success(result.additionalUserInfo!!.isNewUser, result.user!!))
 

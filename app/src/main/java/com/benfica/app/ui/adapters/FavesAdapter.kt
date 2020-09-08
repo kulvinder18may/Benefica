@@ -9,6 +9,7 @@ import com.benfica.app.R
 import com.benfica.app.data.models.Fave
 import com.benfica.app.databinding.ItemFaveBinding
 import com.benfica.app.ui.callbacks.FavesCallback
+import com.benfica.app.utils.TimeFormatter
 import com.benfica.app.utils.inflate
 import timber.log.Timber
 
@@ -46,6 +47,7 @@ class FavesAdapter(private val callback: FavesCallback): PagedListAdapter<Fave, 
         fun bind(fave: Fave) {
             binding.meme = fave
             binding.callback = callback
+            binding.timeFormatter = TimeFormatter()
         }
 
     }

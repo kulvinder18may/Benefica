@@ -191,11 +191,13 @@ class MemesRepository constructor(private val firestoreDatabase: FirebaseFiresto
 
         loadBefore?.let {
             val meme = favesDb.document(it).get().await()
+            if(meme.exists())
             query = query.endBefore(meme)
         }
 
         loadAfter?.let {
             val meme = favesDb.document(it).get().await()
+            if(meme.exists())
             query = query.startAfter(meme)
         }
 
@@ -293,7 +295,9 @@ class MemesRepository constructor(private val firestoreDatabase: FirebaseFiresto
                 fave.id = meme.id!!
                 fave.imageUrl = meme.imageUrl!!
                 fave.time = meme.time!!
-
+                fave.caption = meme.caption!!
+                fave.memePoster = meme.memePoster!!
+                fave.memePosterAvatar = meme.memePosterAvatar!!
                 firestoreDatabase.collection(Constants.FAVORITES)
                         .document(userId)
                         .collection(Constants.USER_FAVES)

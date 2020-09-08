@@ -41,7 +41,8 @@
     <!-- BottomSheet style -->
     <style name="BottomSheet.StyleDialog" parent="BottomSheet.Dialog">
         <item name="android:textColorPrimary">@color/color_text_primary</item>
-
+        <item name="android:tint">@color/color_text_primary</item>
+        <item name="android:background">@color/color_primary</item>
     </style>
 
     <!-- Drawer Layout TextViews style -->
