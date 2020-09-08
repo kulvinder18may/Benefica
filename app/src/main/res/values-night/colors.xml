@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Material Theme -->
+
+    <color name="color_primary">#111111</color>
+    <color name="color_primary_variant">#111111</color>
+    <color name="color_secondary">#009688</color>
+    <color name="color_secondary_variant">#009688</color>
+
+    <color name="color_background">#000000</color>
+    <color name="color_surface">#121212</color>
+    <color name="color_error">#cf6679</color>
+
+    <color name="color_on_primary">#000000</color>
+    <color name="color_on_secondary">#000000</color>
+    <color name="color_on_background">#ffffff</color>
+    <color name="color_on_surface">#ffffff</color>
+    <color name="color_on_error">#000000</color>
+
+    <!-- Other colors -->
+    <color name="black">@android:color/black</color>
+    <color name="white">@android:color/white</color>
+    <color name="color_feed_divider">#9497AB</color>
+    <color name="color_text_primary">@android:color/white</color>
+    <color name="color_text_secondary">#9497AB</color>
+    <color name="color_favorite">#ec407a</color>
+
+</resources>

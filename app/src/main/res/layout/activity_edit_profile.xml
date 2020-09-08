@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activities.EditProfileActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/editProfileToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="?android:actionBarStyle"
+        android:background="@color/color_primary_variant"
+        android:layout_alignParentTop="true"
+        android:elevation="1.2dp"
+        tools:targetApi="lollipop">
+
+        <TextView
+            android:id="@+id/toolbarTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/color_text_primary"
+            android:textSize="18.2sp"
+            android:text="@string/toolbar_edit_profile"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:layout_below="@id/editProfileToolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:clipToPadding="false">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="60dp"
+                android:layout_gravity="center_horizontal">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/editProfileImage"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:scaleType="centerCrop"/>
+
+                <ImageButton
+                    android:id="@+id/editProfilePickImage"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_alignBottom="@id/editProfileImage"
+                    android:layout_alignEnd="@id/editProfileImage"
+                    android:background="@drawable/circle_button"
+                    android:contentDescription="@string/content_image_button"/>
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_username"
+                style="@style/ProfileTextView"/>
+
+            <EditText
+                android:id="@+id/editProfileName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="@string/hint_username"
+                style="@style/ProfileEditText"
+                android:importantForAutofill="no" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_bio"
+                style="@style/ProfileTextView"
+                android:layout_marginTop="30dp"/>
+
+            <EditText
+                android:id="@+id/editProfileBio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/ProfileEditText"
+                android:inputType="textMultiLine"
+                android:hint="@string/label_bio"
+                android:importantForAutofill="no" />
+
+            <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
+                android:id="@+id/editProfileButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/button_solid"
+                android:text="@string/button_update_profile"
+                android:textColor="@color/white"
+                app:spinning_bar_color="@android:color/white"
+                app:spinning_bar_width="4dp"
+                app:spinning_bar_padding="2dp"
+                android:layout_gravity="center_horizontal"/>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>
