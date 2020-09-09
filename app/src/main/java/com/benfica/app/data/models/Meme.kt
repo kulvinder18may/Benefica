@@ -12,6 +12,7 @@ data class Meme(
         var memePoster: String? = null,
         var memePosterAvatar: String? = null,
         var memePosterID: String? = null,
+        var isImageMeme: Boolean? = true,
         var thumbnail: String? = null,
         var hashTag: String? = null,
         var city: String? = null,

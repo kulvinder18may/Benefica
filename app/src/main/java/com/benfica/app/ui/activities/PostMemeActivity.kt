@@ -2,11 +2,17 @@ package com.benfica.app.ui.activities
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Bitmap
+import android.media.MediaMetadataRetriever
+import android.media.ThumbnailUtils
 import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import androidx.lifecycle.Observer
 import com.benfica.app.R
 import com.benfica.app.data.Status
@@ -24,6 +30,7 @@ import org.jetbrains.anko.toast
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
 
+
 class PostMemeActivity : BaseActivity() {
     private var imageUri: Uri? = null
     private var imageSelected = false
@@ -32,6 +39,8 @@ class PostMemeActivity : BaseActivity() {
 
     companion object {
         private const val GALLERY_REQUEST = 125
+        private  var ISIMAGE_FILE=true
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,10 +64,11 @@ class PostMemeActivity : BaseActivity() {
         postAddImage.setOnClickListener {
             AppUtils.requestStoragePermission(this) { granted ->
                 if (granted) {
-                  //  val galleryIntent = Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-                    val galleryIntent = Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+                    val galleryIntent = Intent(Intent.ACTION_PICK)
+                    // val galleryIntent = Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
 
-                    galleryIntent.setType("image/* video/*");
+                    galleryIntent.setType("*/*")
+                    galleryIntent.putExtra(Intent.EXTRA_MIME_TYPES, arrayOf("image/*", "video/*"))
                     startActivityForResult(galleryIntent, GALLERY_REQUEST)
                 } else longToast("Storage permission is required to select Avatar")
             }
@@ -135,7 +145,7 @@ class PostMemeActivity : BaseActivity() {
             postTag.setError("Please add #tag")
             return
         }
-       // ThumbnailUtils.createVideoThumbnail(File((imageUri as Uri).path), Size(100,100),null)
+        // ThumbnailUtils.createVideoThumbnail(File((imageUri as Uri).path), Size(100,100),null)
 
         // Create new meme object
         val meme = Meme()
@@ -148,6 +158,7 @@ class PostMemeActivity : BaseActivity() {
         meme.memePosterAvatar = sessionManager.getUserAvatar()
         meme.memePosterID = sessionManager.getUserId()
         meme.time = System.currentTimeMillis()
+        meme.isImageMeme= ISIMAGE_FILE
 
         memesViewModel.postMeme(imageUri!!, meme)
     }
@@ -162,7 +173,7 @@ class PostMemeActivity : BaseActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        when(item?.itemId) {
+        when (item?.itemId) {
             android.R.id.home -> onBackPressed()
             R.id.menu_post -> postMeme()
         }
@@ -175,10 +186,17 @@ class PostMemeActivity : BaseActivity() {
 
         if (requestCode == GALLERY_REQUEST && resultCode == Activity.RESULT_OK) {
             data.let { imageUri = it!!.data }
-          //  if(imageUri.toString().contains("image"))
-            startCropActivity(imageUri!!)
-         //   else
-          //      imageSelected=true
+            if (imageUri.toString().contains("image"))
+                startCropActivity(imageUri!!)
+            else {
+                val bMap = getThumbnail(imageUri!!)
+                postSelectImage.setImageBitmap(bMap)
+                postSelectImage.visibility = VISIBLE
+                postAddImage.visibility = GONE
+                getVideoDuration(imageUri as Uri)
+                imageSelected = true
+                ISIMAGE_FILE=false
+            }
         }
 
         if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
@@ -190,7 +208,7 @@ class PostMemeActivity : BaseActivity() {
                 postSelectImage.setImageURI(resultUri)
                 imageUri = resultUri
                 showSelectedImage()
-
+ISIMAGE_FILE=true
             } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
                 Timber.e("Error cropping meme: ${result.error.localizedMessage}")
             }
@@ -241,5 +259,6 @@ class PostMemeActivity : BaseActivity() {
             AppUtils.slideLeft(this)
         }
     }
+
 
 }
