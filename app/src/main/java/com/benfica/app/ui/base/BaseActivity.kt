@@ -1,8 +1,13 @@
 package com.benfica.app.ui.base
 
 import android.app.ProgressDialog
+import android.graphics.Bitmap
+import android.media.MediaMetadataRetriever
+import android.media.ThumbnailUtils
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
@@ -65,5 +70,28 @@ open class BaseActivity : AppCompatActivity() {
                 .child(TimeFormatter().getFullYear(System.currentTimeMillis()))
                 .child(getUid())
                 .setValue(TimeFormatter().getTime(System.currentTimeMillis()))
+    }
+    fun getVideoDuration(uri: Uri) {
+
+        val retriever = MediaMetadataRetriever();
+        retriever.setDataSource(this, Uri.parse(uri.toString()));
+        val duration = retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)
+        println("Video Duration  $duration")
+        retriever.release();
+
+    }
+
+    fun getThumbnail(uri: Uri): Bitmap {
+        val filePathColumn = arrayOf(MediaStore.Images.Media.DATA)
+        val cursor = this.contentResolver.query(uri, filePathColumn, null, null, null)
+        cursor?.moveToFirst()
+
+        val columnIndex = cursor?.getColumnIndex(filePathColumn[0])
+        val picturePath = cursor?.getString(columnIndex!!)
+        cursor?.close()
+
+        return ThumbnailUtils.createVideoThumbnail(picturePath, MediaStore.Video.Thumbnails.MICRO_KIND)
+
+
     }
 }
