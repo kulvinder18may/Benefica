@@ -2,8 +2,12 @@ package com.benfica.app.ui.activities
 
 import android.app.Activity
 import android.content.Intent
+import android.database.Cursor
+import android.graphics.Bitmap
+import android.media.MediaMetadataRetriever
 import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -23,6 +27,7 @@ import org.jetbrains.anko.longToast
 import org.jetbrains.anko.toast
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
+
 
 class PostMemeActivity : BaseActivity() {
     private var imageUri: Uri? = null
@@ -55,11 +60,15 @@ class PostMemeActivity : BaseActivity() {
         postAddImage.setOnClickListener {
             AppUtils.requestStoragePermission(this) { granted ->
                 if (granted) {
-                  //  val galleryIntent = Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-                    val galleryIntent = Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+                    val photoPickerIntent = Intent(Intent.ACTION_PICK)
+                    photoPickerIntent.type = "image/* video/*"
+                    // photoPickerIntent.putExtra(Intent.EXTRA_MIME_TYPES, arrayOf("image/*", "video/*"))
+                    startActivityForResult(photoPickerIntent, GALLERY_REQUEST)
+                    //val galleryIntent = Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+                    // val galleryIntent = Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
 
-                    galleryIntent.setType("image/* video/*");
-                    startActivityForResult(galleryIntent, GALLERY_REQUEST)
+                    // galleryIntent.setType("image/* video/*");
+                    // startActivityForResult(galleryIntent, GALLERY_REQUEST)
                 } else longToast("Storage permission is required to select Avatar")
             }
         }
@@ -135,7 +144,7 @@ class PostMemeActivity : BaseActivity() {
             postTag.setError("Please add #tag")
             return
         }
-       // ThumbnailUtils.createVideoThumbnail(File((imageUri as Uri).path), Size(100,100),null)
+        // ThumbnailUtils.createVideoThumbnail(File((imageUri as Uri).path), Size(100,100),null)
 
         // Create new meme object
         val meme = Meme()
@@ -148,7 +157,6 @@ class PostMemeActivity : BaseActivity() {
         meme.memePosterAvatar = sessionManager.getUserAvatar()
         meme.memePosterID = sessionManager.getUserId()
         meme.time = System.currentTimeMillis()
-
         memesViewModel.postMeme(imageUri!!, meme)
     }
 
@@ -162,7 +170,7 @@ class PostMemeActivity : BaseActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        when(item?.itemId) {
+        when (item?.itemId) {
             android.R.id.home -> onBackPressed()
             R.id.menu_post -> postMeme()
         }
@@ -174,12 +182,19 @@ class PostMemeActivity : BaseActivity() {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == GALLERY_REQUEST && resultCode == Activity.RESULT_OK) {
-            data.let { imageUri = it!!.data }
-          //  if(imageUri.toString().contains("image"))
-            startCropActivity(imageUri!!)
-         //   else
-          //      imageSelected=true
+            val selectedImageUri: Uri? = data!!.getData()
+            val selectedImagePath: String? = getRealPathFromURI(selectedImageUri)
+            println("path $selectedImagePath")
+            if (!selectedImagePath!!.endsWith(".mp4"))
+                startCropActivity(selectedImageUri!!)
+            else {
+                imageSelected = true
+                imageUri = selectedImageUri
+                postSelectImage.setImageBitmap(retriveVideoFrameFromVideo(selectedImageUri!!.path))
+            }
+
         }
+
 
         if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
             val result = CropImage.getActivityResult(data)
@@ -242,4 +257,35 @@ class PostMemeActivity : BaseActivity() {
         }
     }
 
+    fun getRealPathFromURI(uri: Uri?): String? {
+        if (uri == null) {
+            return null
+        }
+        val projection = arrayOf(MediaStore.Images.Media.DATA)
+        val cursor: Cursor? = getContentResolver().query(uri, projection, null, null, null)
+        if (cursor != null) {
+            val column_index: Int = cursor
+                    .getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
+            cursor.moveToFirst()
+            return cursor.getString(column_index)
+        }
+        return uri.path
+    }
+    @Throws(Throwable::class)
+    fun retriveVideoFrameFromVideo(videoPath: String?): Bitmap? {
+        var bitmap: Bitmap? = null
+        var mediaMetadataRetriever: MediaMetadataRetriever? = null
+        try {
+            mediaMetadataRetriever = MediaMetadataRetriever()
+            mediaMetadataRetriever.setDataSource(videoPath, HashMap())
+            //   mediaMetadataRetriever.setDataSource(videoPath);
+            bitmap = mediaMetadataRetriever.frameAtTime
+        } catch (e: Exception) {
+            e.printStackTrace()
+            throw Throwable("Exception in retriveVideoFrameFromVideo(String videoPath)" + e.message)
+        } finally {
+            mediaMetadataRetriever?.release()
+        }
+        return bitmap
+    }
 }
