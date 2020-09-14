@@ -1,6 +1,7 @@
 package com.benfica.app.ui.fragments
 
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
@@ -12,9 +13,8 @@ import android.widget.FrameLayout
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.paging.PagedList
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.cocosw.bottomsheet.BottomSheet
 import com.benfica.app.R
 import com.benfica.app.data.Status
 import com.benfica.app.data.events.PostMemeEvent
@@ -26,15 +26,21 @@ import com.benfica.app.data.wrappers.ItemViewModel
 import com.benfica.app.databinding.FragmentHomeBinding
 import com.benfica.app.ui.activities.CommentActivity
 import com.benfica.app.ui.activities.ProfileActivity
+import com.benfica.app.ui.activities.VideoPlayActivity
 import com.benfica.app.ui.activities.ViewMemeActivity
 import com.benfica.app.ui.adapters.MemesAdapter
 import com.benfica.app.ui.base.BaseFragment
 import com.benfica.app.ui.callbacks.MemesCallback
 import com.benfica.app.ui.viewmodels.MemesViewModel
 import com.benfica.app.utils.*
+import com.cocosw.bottomsheet.BottomSheet
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.fragment_home.*
 import org.greenrobot.eventbus.EventBus
-import org.jetbrains.anko.*
+import org.jetbrains.anko.alert
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.toast
+import org.jetbrains.anko.uiThread
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
 
@@ -66,9 +72,9 @@ class HomeFragment : BaseFragment() {
 
         homeRv.apply {
             setHasFixedSize(true)
-            layoutManager = LinearLayoutManager(activity)
+            layoutManager = GridLayoutManager(activity!!, 1)
             itemAnimator = null
-            addItemDecoration(RecyclerFormatter.DoubleDividerItemDecoration(activity!!))
+            addItemDecoration(RecyclerFormatter.GridItemDecoration(activity!!, R.dimen.grid_layout_margin))
             adapter = memesAdapter
             AppUtils.handleHomeScrolling(this)
         }
@@ -155,7 +161,9 @@ class HomeFragment : BaseFragment() {
                     AppUtils.animateView(view)
                     memesViewModel.likeMeme(memeId, getUid())
                 }
-
+                R.id.play -> {
+               playVideo(meme)
+                }
                 else -> {
                     doAsync {
                         // Get bitmap of shown meme
@@ -205,6 +213,15 @@ class HomeFragment : BaseFragment() {
         startActivity(i)
         AppUtils.fadeIn(activity!!)
     }
+    private fun playVideo(meme: Meme) {
+
+
+        val i = Intent(activity, VideoPlayActivity::class.java)
+        i.putExtra(Constants.PIC_URL, meme.imageUrl)
+        i.putExtra(Constants.CAPTION, meme.caption)
+        startActivity(i)
+        AppUtils.fadeIn(activity!!)
+    }
 
     /**
      * Show BottomSheet with extra actions
@@ -226,11 +243,23 @@ class HomeFragment : BaseFragment() {
                 R.id.bs_share -> AppUtils.shareImage(activity!!, image)
 
                 R.id.bs_delete -> {
-                    activity!!.alert("Delete this meme?") {
+                    MaterialAlertDialogBuilder(activity,R.style.ALertTheme)
+
+                            .setMessage("Delete this meme?")
+                            .setPositiveButton("Delete",object: DialogInterface.OnClickListener{
+                                override fun onClick(p0: DialogInterface?, p1: Int) {
+                                    memesViewModel.deleteMeme(meme.id!!)                 }
+                            })
+                            .setNegativeButton("Cancel" ,object: DialogInterface.OnClickListener{
+                                override fun onClick(p0: DialogInterface?, p1: Int) {
+                                    p0!!.cancel()                       }
+                            })
+                            .show();
+               /*     activity!!.alert("Delete this meme?") {
                         title = "Delete Meme"
                         positiveButton("Delete") { memesViewModel.deleteMeme(meme.id!!) }
                         negativeButton("Cancel") {}
-                    }.show()
+                    }.show()*/
                 }
 
                 R.id.bs_save -> {

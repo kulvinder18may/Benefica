@@ -44,6 +44,7 @@ object Constants {
     const val LIKES = "likes"
     const val FAVES = "faves"
     const val POSTER_ID = "memePosterID"
+    const val MEME_TAG = "memeTag"
     const val METADATA = "metadata"
     const val LAST_ACTIVE = "last-active"
     const val REPORTS = "reports"

@@ -116,7 +116,11 @@
         <com.benfica.app.utils.SquareLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
+            <FrameLayout
+                android:id="@+id/imageFL"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/memeTag">
             <com.makeramen.roundedimageview.RoundedImageView
                 android:id="@+id/faveImage"
                 android:layout_width="match_parent"
@@ -126,7 +130,26 @@
                 bind:fave="@{meme}"
                 bind:image="@{meme.imageUrl}"
                 bind:placeholder="@{@drawable/loading}" />
+                <View
+                    android:id="@+id/overlay"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    bind:visibility="@{meme.isVideo}"
+                    android:layout_marginTop="12dp"
+                    android:clickable="true"
+                    />
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/play"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    bind:callback="@{callback}"
+                    bind:fave="@{meme}"
+                    bind:visibility="@{meme.isVideo}"
+                    android:background="@color/color_favorite"
 
+                    android:src="@android:drawable/ic_media_play"/>
+            </FrameLayout>
         </com.benfica.app.utils.SquareLayout>
         <LinearLayout
             android:layout_width="match_parent"

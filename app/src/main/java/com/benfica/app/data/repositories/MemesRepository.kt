@@ -9,8 +9,11 @@ import com.benfica.app.data.models.Report
 import com.benfica.app.data.wrappers.ItemViewModel
 import com.benfica.app.data.wrappers.ObservableMeme
 import com.benfica.app.ui.callbacks.StorageUploadListener
+import com.benfica.app.ui.callbacks.VideoUrlCallback
 import com.benfica.app.utils.AppUtils
 import com.benfica.app.utils.Constants
+import com.google.android.gms.tasks.OnFailureListener
+import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
@@ -20,6 +23,8 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import timber.log.Timber
+import java.io.File
+
 
 class MemesRepository constructor(private val firestoreDatabase: FirebaseFirestore,
                                   private val storageReference: StorageReference) {
@@ -69,6 +74,29 @@ class MemesRepository constructor(private val firestoreDatabase: FirebaseFiresto
                 }
             }
         })
+    }
+    /**
+     * Function to post a new Meme
+     * @param imageUri - Selected Meme
+     * @param meme - Meme model
+     * @param callback - Callback response
+     */
+    fun getMemeVideo(imageUri: String, callback: VideoUrlCallback) {
+        val id = db.document().id
+        val storageDb = storageReference.storage.getReferenceFromUrl(imageUri)
+        val errorMessage = "Error posting meme. Please try again"
+        val localFile = File.createTempFile("videos", ".mp4")
+        storageDb.getFile(localFile).addOnSuccessListener(object : OnSuccessListener<Any?> {
+            override fun onSuccess(p0: Any?) {
+              //  callback(Result.Success(true))
+                callback.onVideoUrl(localFile.absolutePath)
+            }
+
+        }
+        ).addOnFailureListener(OnFailureListener {
+            // Handle any errors
+        })
+
     }
 
     /**
@@ -299,6 +327,7 @@ class MemesRepository constructor(private val firestoreDatabase: FirebaseFiresto
                 fave.memePoster = meme.memePoster!!
                 fave.city = meme.city
                 fave.hashTag = meme.hashTag
+                fave.isVideo = meme.isVideo
                 fave.memePosterAvatar = meme.memePosterAvatar!!
                 firestoreDatabase.collection(Constants.FAVORITES)
                         .document(userId)

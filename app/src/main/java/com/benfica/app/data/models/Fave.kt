@@ -12,6 +12,7 @@ data class Fave(
         var commentsCount: Int = 0,
         var time: Long? = null,
         var hashTag: String? = null,
+        var isVideo: Boolean = false,
         var city: String? = null,
         var likes: MutableMap<String, Boolean> = mutableMapOf(),
         var faves: MutableMap<String, Boolean> = mutableMapOf()

@@ -17,6 +17,7 @@ data class Meme(
         var hashTag: String? = null,
         var city: String? = null,
         var muted: Boolean = false,
+        var isVideo: Boolean = false,
         var likes: MutableMap<String, Boolean> = mutableMapOf(),
         var faves: MutableMap<String, Boolean> = mutableMapOf()
 ): Serializable {

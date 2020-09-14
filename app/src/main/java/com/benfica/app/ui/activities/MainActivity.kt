@@ -2,6 +2,7 @@ package com.benfica.app.ui.activities
 
 import am.appwise.components.ni.NoInternetDialog
 import android.content.ActivityNotFoundException
+import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -18,14 +19,15 @@ import com.benfica.app.R
 import com.benfica.app.data.Status
 import com.benfica.app.data.events.ScrollingEvent
 import com.benfica.app.ui.base.BaseActivity
-import com.benfica.app.ui.fragments.HomeFragment
 import com.benfica.app.ui.fragments.FavesFragment
+import com.benfica.app.ui.fragments.HomeFragment
 import com.benfica.app.ui.fragments.NotificationsFragment
 import com.benfica.app.ui.fragments.ProfileFragment
 import com.benfica.app.ui.viewmodels.UsersViewModel
 import com.benfica.app.utils.*
 import com.benfica.app.utils.AppUtils.getDrawable
 import com.gelostech.pageradapter.PagerAdapter
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.messaging.FirebaseMessaging
 import com.mikepenz.fontawesome_typeface_library.FontAwesome
 import com.mikepenz.ionicons_typeface_library.Ionicons
@@ -37,11 +39,9 @@ import kotlinx.android.synthetic.main.layout_activity_main.*
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
-import org.jetbrains.anko.alert
 import org.jetbrains.anko.longToast
 import org.jetbrains.anko.toast
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import timber.log.Timber
 
 
 class MainActivity : BaseActivity(), ViewPager.OnPageChangeListener {
@@ -221,11 +221,24 @@ class MainActivity : BaseActivity(), ViewPager.OnPageChangeListener {
         }
 
         drawerAction(drawerLogout) {
-            alert("Are you sure you want to log out?") {
+            MaterialAlertDialogBuilder(this,R.style.ALertTheme)
+                    .setTitle("Log out")
+                    .setMessage("Are you sure you want to log out?")
+                    .setPositiveButton("Log Out",object:DialogInterface.OnClickListener{
+                        override fun onClick(p0: DialogInterface?, p1: Int) {
+                            usersViewModel.logout()                        }
+                    })
+                    .setNegativeButton("Cancel" ,object:DialogInterface.OnClickListener{
+                        override fun onClick(p0: DialogInterface?, p1: Int) {
+                            p0!!.cancel()                       }
+                    })
+                    .show();
+        /*    alert("Are you sure you want to log out?") {
                 title = "Log out"
                 positiveButton("Log Out") { usersViewModel.logout() }
                 negativeButton("Cancel") {}
-            }.show()
+
+            }.show()*/
         }
 
         drawerAction(themeSwitch) {

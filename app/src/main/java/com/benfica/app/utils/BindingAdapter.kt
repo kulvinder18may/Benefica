@@ -62,6 +62,17 @@ object BindingAdapter : KoinComponent {
             false -> view.hideView()
         }
     }
+    /**
+     * Set layout visibility
+     */
+    @JvmStatic
+    @BindingAdapter("visibility")
+    fun setVisibility(view: ImageView, visible: Boolean) {
+        when (visible) {
+            true -> view.showView()
+            false -> view.hideView()
+        }
+    }
 
     /**
      * Set likes to Meme post

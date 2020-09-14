@@ -132,13 +132,16 @@
             android:text="@{meme.hashTag}"
             android:layout_alignParentRight="true"
             android:textColor="@color/color_secondary"/>
-
+<FrameLayout
+    android:id="@+id/imageFL"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@id/memeTag">
         <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/memeImage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:layout_below="@id/memeTag"
             android:contentDescription="@string/content_image"
             android:scaleType="fitXY"
             android:adjustViewBounds="true"
@@ -148,11 +151,29 @@
             bind:placeholder="@{@drawable/loading}"
             bind:thumbnail="@{meme.thumbnail}"
             android:onClick="@{(v) -> callback.onMemeClicked(v, meme)}"/>
+    <View
+        android:id="@+id/overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        bind:visibility="@{meme.isVideo}"
+        android:layout_marginTop="12dp"
+        android:clickable="true"
+ />
 
+    <ImageView
+        android:id="@+id/play"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        bind:visibility="@{meme.isVideo}"
+        android:background="@color/color_favorite"
+        android:onClick="@{(v) -> callback.onMemeClicked(v, meme)}"
+        android:src="@android:drawable/ic_media_play"/>
+</FrameLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/memeImage"
+            android:layout_below="@id/imageFL"
             android:layout_marginTop="5dp"
             android:paddingStart="5dp"
             android:paddingEnd="5dp"

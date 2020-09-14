@@ -1,13 +1,10 @@
-package com.benfica.app.ui.fragments
-
+package com.benfica.app.ui.activities
 
 import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
@@ -15,11 +12,9 @@ import com.benfica.app.R
 import com.benfica.app.data.Status
 import com.benfica.app.data.events.PostMemeEvent
 import com.benfica.app.data.models.Fave
-import com.benfica.app.databinding.FragmentFavesBinding
-import com.benfica.app.ui.activities.VideoPlayActivity
-import com.benfica.app.ui.activities.ViewMemeActivity
+import com.benfica.app.databinding.ActivitySearchMemeBinding
 import com.benfica.app.ui.adapters.FavesAdapter
-import com.benfica.app.ui.base.BaseFragment
+import com.benfica.app.ui.base.BaseActivity
 import com.benfica.app.ui.callbacks.FavesCallback
 import com.benfica.app.ui.viewmodels.MemesViewModel
 import com.benfica.app.utils.*
@@ -30,33 +25,33 @@ import kotlinx.android.synthetic.main.fragment_faves.*
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
+import org.jetbrains.anko.toast
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class FavesFragment : BaseFragment() {
+class SearchMemeActivity: BaseActivity() {
     private lateinit var favesAdapter: FavesAdapter
     private val memesViewModel: MemesViewModel by viewModel()
-
+    private lateinit var binding: ActivitySearchMemeBinding
+val activity=this
     override fun onStart() {
         super.onStart()
         if (!EventBus.getDefault().isRegistered(this)) EventBus.getDefault().register(this)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
-        val binding = DataBindingUtil.inflate<FragmentFavesBinding>(inflater, R.layout.fragment_faves, container, false)
-        binding.lifecycleOwner = this
-        return binding.root
-    }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+          binding = DataBindingUtil.setContentView(this, R.layout.activity_search_meme)
+        binding.lifecycleOwner = this
 
         initViews()
         initFavesObserver()
         initStatusObserver()
         initResponseObserver()
     }
+
+
 
     private fun initViews() {
         favesAdapter = FavesAdapter(favesCallback)
@@ -166,7 +161,7 @@ class FavesFragment : BaseFragment() {
      * Function to handle long click on Fave item
      */
     private fun handleLongClick(faveId: String) {
-        MaterialAlertDialogBuilder(activity,R.style.ALertTheme)
+        MaterialAlertDialogBuilder(activity, R.style.ALertTheme)
 
                 .setMessage("Delete meme from favorites?")
                 .setPositiveButton("Delete",object: DialogInterface.OnClickListener{

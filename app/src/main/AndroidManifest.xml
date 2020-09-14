@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.benfica.app">
+    package="com.benfica.app" >
 
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -16,19 +16,24 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/DankTheme"
         tools:ignore="AllowBackup"
-        tools:replace="android:theme">
-        <activity android:name=".ui.activities.ReportsActivity"></activity>
+        tools:replace="android:theme" >
+        <activity
+            android:name=".ui.activities.VideoPlayActivity"
+            android:label="@string/title_activity_video_play" >
+        </activity>
+        <activity android:name=".ui.activities.ReportsActivity" />
         <activity
             android:name=".ui.activities.SplashActivity"
             android:configChanges="orientation"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme"
-            tools:ignore="LockedOrientationActivity">
+            tools:ignore="LockedOrientationActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -41,8 +46,8 @@
             android:launchMode="singleInstance" />
         <activity
             android:name=".ui.activities.PostMemeActivity"
-            android:label="@string/app_name">
-            <intent-filter tools:ignore="AppLinkUrlError">
+            android:label="@string/app_name" >
+            <intent-filter tools:ignore="AppLinkUrlError" >
                 <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.SEND" />
 
@@ -65,7 +70,7 @@
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".ui.activities.LoginActivity"
-            android:windowSoftInputMode="adjustPan" />
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".ui.activities.EditProfileActivity"
             android:windowSoftInputMode="stateHidden|adjustPan" />
@@ -73,7 +78,7 @@
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />
 
-        <service android:name=".utils.services.MyFirebaseMessagingService">
+        <service android:name=".utils.services.MyFirebaseMessagingService" >
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>

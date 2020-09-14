@@ -1,12 +1,7 @@
 package com.benfica.app.ui.adapters
 
 import android.annotation.SuppressLint
-import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.RatingBar
-import android.widget.TextView
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -16,7 +11,10 @@ import com.benfica.app.data.wrappers.ItemViewModel
 import com.benfica.app.data.wrappers.ObservableMeme
 import com.benfica.app.databinding.ItemMemeBinding
 import com.benfica.app.ui.callbacks.MemesCallback
-import com.benfica.app.utils.*
+import com.benfica.app.utils.AppUtils
+import com.benfica.app.utils.TimeFormatter
+import com.benfica.app.utils.inflate
+import com.benfica.app.utils.setDrawable
 import com.mikepenz.ionicons_typeface_library.Ionicons
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.addTo
@@ -80,7 +78,7 @@ class MemesAdapter(private val callback: MemesCallback): PagedListAdapter<ItemVi
             if (binding.meme != null && binding.meme!!.id == meme.id) {
                 meme.imageUrl = null
             }
-
+            println("hggggggggghgghghhg"+meme.imageUrl)
             binding.meme = meme
             binding.callback = callback
             binding.timeFormatter = TimeFormatter()

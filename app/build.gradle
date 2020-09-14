@@ -20,7 +20,7 @@ android {
     compileSdkVersion 29
     buildToolsVersion '29.0.2'
 
-  /*  signingConfigs {
+    /*  signingConfigs {
         release {
             if (keystoreProperties != null) {
                 keyAlias keystoreProperties['keyAlias']
@@ -44,7 +44,7 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
-       // signingConfig signingConfigs.release
+        // signingConfig signingConfigs.release
     }
 
     buildTypes {
@@ -83,6 +83,13 @@ android {
     lintOptions {
         abortOnError false
     }
+// To inline the bytecode built with JVM target 1.8 into
+// bytecode that is being built with JVM target 1.6. (e.g. navArgs)
+
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 dependencies {
@@ -100,7 +107,7 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.1.0'
     implementation "androidx.paging:paging-runtime:2.1.1"
     implementation "androidx.preference:preference-ktx:1.1.0"
-
+    implementation 'com.github.HamidrezaAmz:MagicalExoPlayer:1.0.15'
     // Lifecycle
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$arch_version"
     implementation "androidx.lifecycle:lifecycle-extensions:$arch_version"
@@ -121,6 +128,8 @@ dependencies {
     // Images libs
     implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
     implementation 'com.github.bumptech.glide:glide:4.9.0'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.0.0'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.0.0'
     kapt 'com.github.bumptech.glide:compiler:4.9.0'
 
     // Iconics libs

@@ -25,10 +25,10 @@ import android.view.animation.AnimationUtils
 import android.widget.EditText
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.benfica.app.R
 import com.benfica.app.data.events.ScrollingEvent
 import com.benfica.app.ui.callbacks.StorageUploadListener
+import com.bumptech.glide.Glide
 import com.google.firebase.storage.StorageReference
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.PermissionToken
@@ -68,6 +68,25 @@ object AppUtils {
     fun requestStoragePermission(context: Context, granted: (Boolean) -> Unit) {
         Dexter.withActivity(context as Activity)
                 .withPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+
+                .withListener(object : PermissionListener {
+                    override fun onPermissionGranted(response: PermissionGrantedResponse) {
+                        granted(true)
+                    }
+
+                    override fun onPermissionDenied(response: PermissionDeniedResponse) {
+                        granted(false)
+                    }
+
+                    override fun onPermissionRationaleShouldBeShown(permission: PermissionRequest, token: PermissionToken) {
+                        token.continuePermissionRequest()
+                    }
+                }).check()
+    }
+    fun requestStorageReadPermission(context: Context, granted: (Boolean) -> Unit) {
+        Dexter.withActivity(context as Activity)
+                .withPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
+
                 .withListener(object : PermissionListener {
                     override fun onPermissionGranted(response: PermissionGrantedResponse) {
                         granted(true)

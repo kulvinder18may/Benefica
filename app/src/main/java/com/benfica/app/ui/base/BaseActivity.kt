@@ -1,14 +1,11 @@
 package com.benfica.app.ui.base
 
 import android.app.ProgressDialog
-import android.graphics.Bitmap
 import android.media.MediaMetadataRetriever
-import android.media.ThumbnailUtils
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
-import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -20,7 +17,7 @@ import com.google.firebase.database.DatabaseReference
 import com.nostra13.universalimageloader.core.ImageLoader
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration
 import org.koin.android.ext.android.inject
-import timber.log.Timber
+import java.io.File
 
 
 open class BaseActivity : AppCompatActivity() {
@@ -53,7 +50,7 @@ open class BaseActivity : AppCompatActivity() {
     // Show progress dialog
     fun showLoading(message: String) {
         progressDialog.setMessage(message)
-        progressDialog.setCancelable(false)
+        progressDialog.setCancelable(true)
         progressDialog.show()
     }
 
@@ -71,6 +68,7 @@ open class BaseActivity : AppCompatActivity() {
                 .child(getUid())
                 .setValue(TimeFormatter().getTime(System.currentTimeMillis()))
     }
+
     fun getVideoDuration(uri: Uri) {
 
         val retriever = MediaMetadataRetriever();
@@ -81,17 +79,25 @@ open class BaseActivity : AppCompatActivity() {
 
     }
 
-    fun getThumbnail(uri: Uri): Bitmap {
-        val filePathColumn = arrayOf(MediaStore.Images.Media.DATA)
-        val cursor = this.contentResolver.query(uri, filePathColumn, null, null, null)
-        cursor?.moveToFirst()
+    fun getThumbnail(uri: Uri): String {
+        val filePathColumn = arrayOf(MediaStore.Video.Media.DATA)
+        val cursor =  contentResolver.query(uri, filePathColumn, null, null, null)
+        cursor!!.moveToFirst()
 
-        val columnIndex = cursor?.getColumnIndex(filePathColumn[0])
-        val picturePath = cursor?.getString(columnIndex!!)
-        cursor?.close()
+        val columnIndex = cursor.getColumnIndex(MediaStore.Video.Thumbnails.DATA)
+        val picturePath = cursor.getString(columnIndex)
+        cursor.close()
 
-        return ThumbnailUtils.createVideoThumbnail(picturePath, MediaStore.Video.Thumbnails.MICRO_KIND)
+        return   picturePath
 
 
+    }
+
+    fun getFileSize(filepath: String): Long {
+        val file = File(filepath)
+
+        var length: Long = file.length()
+        length = length / 1024
+        return length / 1024
     }
 }

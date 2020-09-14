@@ -21,6 +21,7 @@ import com.benfica.app.data.responses.GenericResponse
 import com.benfica.app.data.responses.MemesResponse
 import com.benfica.app.data.wrappers.ItemViewModel
 import com.benfica.app.data.wrappers.ObservableUser
+import com.benfica.app.ui.callbacks.VideoUrlCallback
 import kotlinx.coroutines.launch
 
 class MemesViewModel constructor(private val repository: MemesRepository) : ViewModel() {
@@ -32,11 +33,30 @@ class MemesViewModel constructor(private val repository: MemesRepository) : View
     val memeResponseLiveData: MutableLiveData<MemesResponse>
         get() = _memeResponseLiveData
 
+   private val _urlResponse= MutableLiveData<String>()
+    val urlResponse: MutableLiveData<String>
+        get() = _urlResponse
+
     private val _showStatusLiveData = MutableLiveData<Status>()
     val showStatusLiveData: MutableLiveData<Status>
         get() = _showStatusLiveData
 
+    /**
+     * Function to post new Meme
+     * @param imageUri - Uri of the selected meme
+     * @param meme - Meme model
+     */
+    fun getvideoUrl(imageUri: String) {
+        viewModelScope.launch {
+            _genericResponseLiveData.value = GenericResponse.loading()
 
+            repository.getMemeVideo(imageUri,object:VideoUrlCallback{
+                override fun onVideoUrl(url: String) {
+                    _urlResponse.postValue(url)
+                }
+            })
+        }
+    }
     /**
      * Function to post new Meme
      * @param imageUri - Uri of the selected meme

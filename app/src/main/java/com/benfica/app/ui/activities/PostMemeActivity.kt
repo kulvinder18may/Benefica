@@ -1,16 +1,17 @@
 package com.benfica.app.ui.activities
 
 import android.app.Activity
+import android.content.DialogInterface
 import android.content.Intent
 import android.database.Cursor
-import android.graphics.Bitmap
-import android.media.MediaMetadataRetriever
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import androidx.annotation.RequiresApi
 import androidx.lifecycle.Observer
 import com.benfica.app.R
 import com.benfica.app.data.Status
@@ -18,11 +19,12 @@ import com.benfica.app.data.models.Meme
 import com.benfica.app.ui.base.BaseActivity
 import com.benfica.app.ui.viewmodels.MemesViewModel
 import com.benfica.app.utils.*
+import com.bumptech.glide.Glide
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.mikepenz.ionicons_typeface_library.Ionicons
 import com.theartofdev.edmodo.cropper.CropImage
 import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.activity_post.*
-import org.jetbrains.anko.alert
 import org.jetbrains.anko.longToast
 import org.jetbrains.anko.toast
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -34,7 +36,7 @@ class PostMemeActivity : BaseActivity() {
     private var imageSelected = false
     private var uploadMeme: MenuItem? = null
     private val memesViewModel: MemesViewModel by viewModel()
-
+var isVideo=false
     companion object {
         private const val GALLERY_REQUEST = 125
     }
@@ -60,6 +62,8 @@ class PostMemeActivity : BaseActivity() {
         postAddImage.setOnClickListener {
             AppUtils.requestStoragePermission(this) { granted ->
                 if (granted) {
+                    AppUtils.requestStorageReadPermission(this){gant->
+                        if(gant){
                     val photoPickerIntent = Intent(Intent.ACTION_PICK)
                     photoPickerIntent.type = "image/* video/*"
                     // photoPickerIntent.putExtra(Intent.EXTRA_MIME_TYPES, arrayOf("image/*", "video/*"))
@@ -69,7 +73,7 @@ class PostMemeActivity : BaseActivity() {
 
                     // galleryIntent.setType("image/* video/*");
                     // startActivityForResult(galleryIntent, GALLERY_REQUEST)
-                } else longToast("Storage permission is required to select Avatar")
+                } else longToast("Storage permission is required to select Avatar")}}
             }
         }
     }
@@ -157,6 +161,7 @@ class PostMemeActivity : BaseActivity() {
         meme.memePosterAvatar = sessionManager.getUserAvatar()
         meme.memePosterID = sessionManager.getUserId()
         meme.time = System.currentTimeMillis()
+        meme.isVideo=isVideo
         memesViewModel.postMeme(imageUri!!, meme)
     }
 
@@ -178,6 +183,7 @@ class PostMemeActivity : BaseActivity() {
         return true
     }
 
+    @RequiresApi(Build.VERSION_CODES.Q)
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
@@ -188,9 +194,16 @@ class PostMemeActivity : BaseActivity() {
             if (!selectedImagePath!!.endsWith(".mp4"))
                 startCropActivity(selectedImageUri!!)
             else {
+                isVideo=true
                 imageSelected = true
                 imageUri = selectedImageUri
-                postSelectImage.setImageBitmap(retriveVideoFrameFromVideo(selectedImageUri!!.path))
+                println(getFileSize(getRealPathFromURI(selectedImageUri!!)!!))
+                postSelectVideo.visibility=View.VISIBLE
+                postAddImage.visibility = View.GONE
+                Glide.with(this).load("file://${getThumbnail(selectedImageUri!!)}")
+                        .skipMemoryCache(false)
+                        .into(postSelectVideo);
+               // postSelectImage.setImageBitmap(getThumbnail(selectedImageUri!!))
             }
 
         }
@@ -238,6 +251,7 @@ class PostMemeActivity : BaseActivity() {
         imageSelected = false
         imageUri = null
 
+        postSelectVideo.hideView()
         postSelectImage.hideView()
         showViews(postAddImage)
         postCaption.setText("")
@@ -245,12 +259,24 @@ class PostMemeActivity : BaseActivity() {
 
     override fun onBackPressed() {
         if (imageSelected) {
-            alert("Remove selected image?") {
+            MaterialAlertDialogBuilder(this,R.style.ALertTheme)
+
+                    .setMessage("Remove selected image?")
+                    .setPositiveButton("Remove",object: DialogInterface.OnClickListener{
+                        override fun onClick(p0: DialogInterface?, p1: Int) {
+                            showSelectImage()                      }
+                    })
+                    .setNegativeButton("Cancel" ,object: DialogInterface.OnClickListener{
+                        override fun onClick(p0: DialogInterface?, p1: Int) {
+                            p0!!.cancel()                       }
+                    })
+                    .show();
+               /* alert("Remove selected image?") {
                 positiveButton("Remove") {
                     showSelectImage()
                 }
                 negativeButton("Cancel") {}
-            }.show()
+            }.show()*/
         } else {
             super.onBackPressed()
             AppUtils.slideLeft(this)
@@ -271,21 +297,5 @@ class PostMemeActivity : BaseActivity() {
         }
         return uri.path
     }
-    @Throws(Throwable::class)
-    fun retriveVideoFrameFromVideo(videoPath: String?): Bitmap? {
-        var bitmap: Bitmap? = null
-        var mediaMetadataRetriever: MediaMetadataRetriever? = null
-        try {
-            mediaMetadataRetriever = MediaMetadataRetriever()
-            mediaMetadataRetriever.setDataSource(videoPath, HashMap())
-            //   mediaMetadataRetriever.setDataSource(videoPath);
-            bitmap = mediaMetadataRetriever.frameAtTime
-        } catch (e: Exception) {
-            e.printStackTrace()
-            throw Throwable("Exception in retriveVideoFrameFromVideo(String videoPath)" + e.message)
-        } finally {
-            mediaMetadataRetriever?.release()
-        }
-        return bitmap
-    }
+
 }
