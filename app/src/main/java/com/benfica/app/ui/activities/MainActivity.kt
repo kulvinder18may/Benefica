@@ -19,10 +19,7 @@ import com.benfica.app.R
 import com.benfica.app.data.Status
 import com.benfica.app.data.events.ScrollingEvent
 import com.benfica.app.ui.base.BaseActivity
-import com.benfica.app.ui.fragments.FavesFragment
-import com.benfica.app.ui.fragments.HomeFragment
-import com.benfica.app.ui.fragments.NotificationsFragment
-import com.benfica.app.ui.fragments.ProfileFragment
+import com.benfica.app.ui.fragments.*
 import com.benfica.app.ui.viewmodels.UsersViewModel
 import com.benfica.app.utils.*
 import com.benfica.app.utils.AppUtils.getDrawable
@@ -52,7 +49,7 @@ class MainActivity : BaseActivity(), ViewPager.OnPageChangeListener {
     private lateinit var favesFragment: FavesFragment
     private lateinit var profileFragment: ProfileFragment
     private lateinit var homeFragment: HomeFragment
-    private lateinit var notifFragment: NotificationsFragment
+    private lateinit var notifFragment: VideoFragment
     private lateinit var noInternetDialog: NoInternetDialog
     private val usersViewModel: UsersViewModel by viewModel()
 
@@ -79,13 +76,13 @@ class MainActivity : BaseActivity(), ViewPager.OnPageChangeListener {
         profileFragment = ProfileFragment()
         favesFragment = FavesFragment()
         homeFragment = HomeFragment()
-        notifFragment = NotificationsFragment()
+        notifFragment = VideoFragment()
 
         APP_NAME = getString(R.string.app_name)
         HOME = getString(R.string.fragment_home)
         FAVES = getString(R.string.fragment_faves)
         PROFILE = getString(R.string.fragment_profile)
-        NOTIFICATIONS = getString(R.string.fragment_notifications)
+        NOTIFICATIONS ="Videos" //getString(R.string.fragment_notifications)
         PLAY_STORE_LINK = getString(R.string.label_play_store_link) + this.packageName
 
         setupToolbar()

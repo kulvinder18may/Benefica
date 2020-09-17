@@ -155,6 +155,54 @@ class MemesRepository constructor(private val firestoreDatabase: FirebaseFiresto
     }
 
     /**
+     * Fetch all memes
+     */
+    suspend fun searchMemes(keyword:String,loadBefore: String? = null, loadAfter: String? = null): List<ObservableMeme> {
+        Timber.e("Fetching memes...")
+        var query: Query = memesQuery
+
+        loadBefore?.let {
+            val meme = db.document(it).get().await()
+            query = memesQuery.endBefore(meme)
+        }
+
+        loadAfter?.let {
+            val meme = db.document(it).get().await()
+            query = memesQuery.startAfter(meme)
+        }
+
+        return query.get().await()
+                .filter {
+                    val meme = it.toObject(Meme::class.java)
+                    meme.hashTag!!.contains(keyword,true)||meme.city!!.contains(keyword,true)
+                }
+                .map { ObservableMeme(it.id, getObservableMeme(it.id)) }
+    }
+
+    suspend fun getVideoMemeOnly(keyword:String,loadBefore: String? = null, loadAfter: String? = null): List<ObservableMeme> {
+        Timber.e("Fetching memes...")
+        var query: Query = memesQuery
+
+        loadBefore?.let {
+            val meme = db.document(it).get().await()
+            query = memesQuery.endBefore(meme)
+        }
+
+        loadAfter?.let {
+            val meme = db.document(it).get().await()
+            query = memesQuery.startAfter(meme)
+        }
+
+        return query.get().await()
+                .filter {
+                    val meme = it.toObject(Meme::class.java)
+                    (meme.hashTag!!.contains(keyword,true)||meme.city!!.contains(keyword,true))&&meme.isVideo
+                }
+                .map { ObservableMeme(it.id, getObservableMeme(it.id)) }
+    }
+
+
+    /**
      * Fetch all memes by user
      * @param userId - ID of the User
      */
@@ -208,7 +256,17 @@ class MemesRepository constructor(private val firestoreDatabase: FirebaseFiresto
                         emitter.onError(Throwable("Meme not found"))
                 }
     }
-
+    private fun searchObservableMeme(memeId: String,keyword:String): Observable<Meme> = Observable.create<Meme> { emitter ->
+        db.document(memeId)
+                .addSnapshotListener { documentSnapshot, firebaseFirestoreException ->
+                    if (firebaseFirestoreException != null)
+                        emitter.onError(firebaseFirestoreException)
+                    else if (documentSnapshot != null && documentSnapshot.exists() )
+                        emitter.onNext(documentSnapshot.toObject(Meme::class.java)!!)
+                    else
+                        emitter.onError(Throwable("Meme not found"))
+                }
+    }
     /**
      * Fetch all memes
      */

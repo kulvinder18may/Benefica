@@ -121,6 +121,35 @@ class MemesViewModel constructor(private val repository: MemesRepository) : View
     /**
      * Function to fetch memes
      */
+    fun searchMemes(keyWord:String): LiveData<PagedList<ItemViewModel>> {
+        val pagingConfig = PagedList.Config.Builder()
+                .setEnablePlaceholders(false)
+                .setPrefetchDistance(5)
+                .build()
+
+        val memeFactory = MemesDataSource.Factory(repository, viewModelScope,searchKeyword=keyWord) {
+            _showStatusLiveData.postValue(it)
+        }
+        return LivePagedListBuilder<String, ItemViewModel>(memeFactory, pagingConfig).build()
+    }
+
+    /**
+     * Function to fetch memes
+     */
+    fun videoMemes(keyWord:String): LiveData<PagedList<ItemViewModel>> {
+        val pagingConfig = PagedList.Config.Builder()
+                .setEnablePlaceholders(false)
+                .setPrefetchDistance(5)
+                .build()
+
+        val memeFactory = MemesDataSource.Factory(repository, viewModelScope,searchKeyword=keyWord,isVideoOnly = true) {
+            _showStatusLiveData.postValue(it)
+        }
+        return LivePagedListBuilder<String, ItemViewModel>(memeFactory, pagingConfig).build()
+    }
+    /**
+     * Function to fetch memes
+     */
     fun fetchFaves(): LiveData<PagedList<Fave>> {
         val pagingConfig = PagedList.Config.Builder()
                 .setEnablePlaceholders(false)

@@ -1,6 +1,5 @@
 package com.benfica.app.ui.fragments
 
-
 import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Bitmap
@@ -45,7 +44,10 @@ import org.jetbrains.anko.uiThread
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
 
-class HomeFragment : BaseFragment() {
+/**
+ * Created by AblySoft Pvt Ltd. on 17/9/20.
+ */
+class VideoFragment : BaseFragment() {
     private lateinit var memesAdapter: MemesAdapter
     private lateinit var bs: BottomSheet.Builder
     private val memesViewModel: MemesViewModel by viewModel()
@@ -63,8 +65,8 @@ class HomeFragment : BaseFragment() {
         initViews()
 
         initStatusObserver()
-       // initMemesObserver()
-        initSearchObserver("")
+        // initMemesObserver()
+        initVideoObserver("")
         initResponseObserver()
         searchV.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
@@ -72,7 +74,7 @@ class HomeFragment : BaseFragment() {
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                initSearchObserver(newText!!)
+                initVideoObserver(newText!!)
                 return false
             }
         })
@@ -125,17 +127,10 @@ class HomeFragment : BaseFragment() {
         })
     }
 
-    /**
-     * Initialize observer for Memes LiveData
-     */
-    private fun initMemesObserver() {
-        memesViewModel.fetchMemes().observe(this, Observer {
-            memesAdapter.submitList(it as PagedList<ItemViewModel>)
-        })
-    }
 
-    private fun initSearchObserver(keyword:String) {
-        memesViewModel.searchMemes(keyword).observe(this, Observer {
+
+    private fun initVideoObserver(keyword:String) {
+        memesViewModel.videoMemes(keyword).observe(this, Observer {
             memesAdapter.submitList(it as PagedList<ItemViewModel>)
         })
     }

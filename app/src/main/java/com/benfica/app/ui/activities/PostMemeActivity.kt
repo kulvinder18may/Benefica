@@ -36,7 +36,8 @@ class PostMemeActivity : BaseActivity() {
     private var imageSelected = false
     private var uploadMeme: MenuItem? = null
     private val memesViewModel: MemesViewModel by viewModel()
-var isVideo=false
+    var isVideo = false
+
     companion object {
         private const val GALLERY_REQUEST = 125
     }
@@ -62,18 +63,20 @@ var isVideo=false
         postAddImage.setOnClickListener {
             AppUtils.requestStoragePermission(this) { granted ->
                 if (granted) {
-                    AppUtils.requestStorageReadPermission(this){gant->
-                        if(gant){
-                    val photoPickerIntent = Intent(Intent.ACTION_PICK)
-                    photoPickerIntent.type = "image/* video/*"
-                    // photoPickerIntent.putExtra(Intent.EXTRA_MIME_TYPES, arrayOf("image/*", "video/*"))
-                    startActivityForResult(photoPickerIntent, GALLERY_REQUEST)
-                    //val galleryIntent = Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-                    // val galleryIntent = Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+                    AppUtils.requestStorageReadPermission(this) { gant ->
+                        if (gant) {
+                            val photoPickerIntent = Intent(Intent.ACTION_PICK)
+                            photoPickerIntent.type = "image/* video/*"
+                            // photoPickerIntent.putExtra(Intent.EXTRA_MIME_TYPES, arrayOf("image/*", "video/*"))
+                            startActivityForResult(photoPickerIntent, GALLERY_REQUEST)
+                            //val galleryIntent = Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+                            // val galleryIntent = Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
 
-                    // galleryIntent.setType("image/* video/*");
-                    // startActivityForResult(galleryIntent, GALLERY_REQUEST)
-                } else longToast("Storage permission is required to select Avatar")}}
+                            // galleryIntent.setType("image/* video/*");
+                            // startActivityForResult(galleryIntent, GALLERY_REQUEST)
+                        } else longToast("Storage permission is required to select Avatar")
+                    }
+                }
             }
         }
     }
@@ -161,7 +164,7 @@ var isVideo=false
         meme.memePosterAvatar = sessionManager.getUserAvatar()
         meme.memePosterID = sessionManager.getUserId()
         meme.time = System.currentTimeMillis()
-        meme.isVideo=isVideo
+        meme.isVideo = isVideo
         memesViewModel.postMeme(imageUri!!, meme)
     }
 
@@ -194,16 +197,16 @@ var isVideo=false
             if (!selectedImagePath!!.endsWith(".mp4"))
                 startCropActivity(selectedImageUri!!)
             else {
-                isVideo=true
+                isVideo = true
                 imageSelected = true
                 imageUri = selectedImageUri
                 println(getFileSize(getRealPathFromURI(selectedImageUri!!)!!))
-                postSelectVideo.visibility=View.VISIBLE
+                postSelectVideo.visibility = View.VISIBLE
                 postAddImage.visibility = View.GONE
                 Glide.with(this).load("file://${getThumbnail(selectedImageUri!!)}")
                         .skipMemoryCache(false)
                         .into(postSelectVideo);
-               // postSelectImage.setImageBitmap(getThumbnail(selectedImageUri!!))
+                // postSelectImage.setImageBitmap(getThumbnail(selectedImageUri!!))
             }
 
         }
@@ -259,24 +262,26 @@ var isVideo=false
 
     override fun onBackPressed() {
         if (imageSelected) {
-            MaterialAlertDialogBuilder(this,R.style.ALertTheme)
+            MaterialAlertDialogBuilder(this, R.style.ALertTheme)
 
                     .setMessage("Remove selected image?")
-                    .setPositiveButton("Remove",object: DialogInterface.OnClickListener{
+                    .setPositiveButton("Remove", object : DialogInterface.OnClickListener {
                         override fun onClick(p0: DialogInterface?, p1: Int) {
-                            showSelectImage()                      }
+                            showSelectImage()
+                        }
                     })
-                    .setNegativeButton("Cancel" ,object: DialogInterface.OnClickListener{
+                    .setNegativeButton("Cancel", object : DialogInterface.OnClickListener {
                         override fun onClick(p0: DialogInterface?, p1: Int) {
-                            p0!!.cancel()                       }
+                            p0!!.cancel()
+                        }
                     })
                     .show();
-               /* alert("Remove selected image?") {
-                positiveButton("Remove") {
-                    showSelectImage()
-                }
-                negativeButton("Cancel") {}
-            }.show()*/
+            /* alert("Remove selected image?") {
+             positiveButton("Remove") {
+                 showSelectImage()
+             }
+             negativeButton("Cancel") {}
+         }.show()*/
         } else {
             super.onBackPressed()
             AppUtils.slideLeft(this)
