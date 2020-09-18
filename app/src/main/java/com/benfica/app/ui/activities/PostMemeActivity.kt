@@ -10,6 +10,7 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.view.Menu
 import android.view.MenuItem
+import android.view.MotionEvent
 import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.Observer
@@ -59,6 +60,21 @@ class PostMemeActivity : BaseActivity() {
             setDisplayHomeAsUpEnabled(true)
             title = null
         }
+postCaption.setOnTouchListener(object:View.OnTouchListener{
+    override fun onTouch(v: View?, event: MotionEvent?): Boolean {
+        if (postCaption.hasFocus()) {
+            v!!.getParent().requestDisallowInterceptTouchEvent(true);
+            when (event!!.action and MotionEvent.ACTION_MASK) {
+                MotionEvent.ACTION_SCROLL -> {
+                    v.parent.requestDisallowInterceptTouchEvent(false)
+                    return true
+                }
+            }
+
+        }
+        return false;
+    }
+})
 
         postAddImage.setOnClickListener {
             AppUtils.requestStoragePermission(this) { granted ->
@@ -67,13 +83,7 @@ class PostMemeActivity : BaseActivity() {
                         if (gant) {
                             val photoPickerIntent = Intent(Intent.ACTION_PICK)
                             photoPickerIntent.type = "image/* video/*"
-                            // photoPickerIntent.putExtra(Intent.EXTRA_MIME_TYPES, arrayOf("image/*", "video/*"))
                             startActivityForResult(photoPickerIntent, GALLERY_REQUEST)
-                            //val galleryIntent = Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-                            // val galleryIntent = Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-
-                            // galleryIntent.setType("image/* video/*");
-                            // startActivityForResult(galleryIntent, GALLERY_REQUEST)
                         } else longToast("Storage permission is required to select Avatar")
                     }
                 }
