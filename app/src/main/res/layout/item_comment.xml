@@ -4,19 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="com.benfica.app.R"/>
+        <import type="com.mysqldatabase.app.R"/>
 
         <variable
             name="comment"
-            type="com.benfica.app.data.models.Comment" />
+            type="com.mysqldatabase.app.data.models.Comment" />
 
         <variable
             name="callback"
-            type="com.benfica.app.ui.callbacks.CommentsCallback" />
+            type="com.mysqldatabase.app.ui.callbacks.CommentsCallback" />
 
         <variable
             name="timeFormatter"
-            type="com.benfica.app.utils.TimeFormatter" />
+            type="com.mysqldatabase.app.utils.TimeFormatter" />
     </data>
 
     <RelativeLayout

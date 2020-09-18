@@ -1,4 +1,4 @@
-package com.benfica.app.ui.activities
+package com.mysqldatabase.app.ui.activities
 
 import am.appwise.components.ni.NoInternetDialog
 import android.content.ActivityNotFoundException
@@ -14,15 +14,15 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.viewpager.widget.ViewPager
-import com.benfica.app.DankMemes
-import com.benfica.app.R
-import com.benfica.app.data.Status
-import com.benfica.app.data.events.ScrollingEvent
-import com.benfica.app.ui.base.BaseActivity
-import com.benfica.app.ui.fragments.*
-import com.benfica.app.ui.viewmodels.UsersViewModel
-import com.benfica.app.utils.*
-import com.benfica.app.utils.AppUtils.getDrawable
+import com.mysqldatabase.app.DankMemes
+import com.mysqldatabase.app.R
+import com.mysqldatabase.app.data.Status
+import com.mysqldatabase.app.data.events.ScrollingEvent
+import com.mysqldatabase.app.ui.base.BaseActivity
+import com.mysqldatabase.app.ui.fragments.*
+import com.mysqldatabase.app.ui.viewmodels.UsersViewModel
+import com.mysqldatabase.app.utils.*
+import com.mysqldatabase.app.utils.AppUtils.getDrawable
 import com.gelostech.pageradapter.PagerAdapter
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.messaging.FirebaseMessaging

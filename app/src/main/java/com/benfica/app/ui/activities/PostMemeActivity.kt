@@ -1,4 +1,4 @@
-package com.benfica.app.ui.activities
+package com.mysqldatabase.app.ui.activities
 
 import android.app.Activity
 import android.content.DialogInterface
@@ -14,15 +14,16 @@ import android.view.MotionEvent
 import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.Observer
-import com.benfica.app.R
-import com.benfica.app.data.Status
-import com.benfica.app.data.models.Meme
-import com.benfica.app.ui.base.BaseActivity
-import com.benfica.app.ui.viewmodels.MemesViewModel
-import com.benfica.app.utils.*
+import com.benfica.app.utils.MaskWatcher
 import com.bumptech.glide.Glide
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.mikepenz.ionicons_typeface_library.Ionicons
+import com.mysqldatabase.app.R
+import com.mysqldatabase.app.data.Status
+import com.mysqldatabase.app.data.models.Meme
+import com.mysqldatabase.app.ui.base.BaseActivity
+import com.mysqldatabase.app.ui.viewmodels.MemesViewModel
+import com.mysqldatabase.app.utils.*
 import com.theartofdev.edmodo.cropper.CropImage
 import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.activity_post.*
@@ -60,21 +61,22 @@ class PostMemeActivity : BaseActivity() {
             setDisplayHomeAsUpEnabled(true)
             title = null
         }
-postCaption.setOnTouchListener(object:View.OnTouchListener{
-    override fun onTouch(v: View?, event: MotionEvent?): Boolean {
-        if (postCaption.hasFocus()) {
-            v!!.getParent().requestDisallowInterceptTouchEvent(true);
-            when (event!!.action and MotionEvent.ACTION_MASK) {
-                MotionEvent.ACTION_SCROLL -> {
-                    v.parent.requestDisallowInterceptTouchEvent(false)
-                    return true
-                }
-            }
+        postTag.addTextChangedListener(MaskWatcher("##-##-##-##-##-##-##-##-##-##-##-##-##-##-##-##-##-##-##-##-##-##"))
+        postCaption.setOnTouchListener(object : View.OnTouchListener {
+            override fun onTouch(v: View?, event: MotionEvent?): Boolean {
+                if (postCaption.hasFocus()) {
+                    v!!.getParent().requestDisallowInterceptTouchEvent(true);
+                    when (event!!.action and MotionEvent.ACTION_MASK) {
+                        MotionEvent.ACTION_SCROLL -> {
+                            v.parent.requestDisallowInterceptTouchEvent(false)
+                            return true
+                        }
+                    }
 
-        }
-        return false;
-    }
-})
+                }
+                return false;
+            }
+        })
 
         postAddImage.setOnClickListener {
             AppUtils.requestStoragePermission(this) { granted ->
@@ -157,8 +159,8 @@ postCaption.setOnTouchListener(object:View.OnTouchListener{
             return
         }
         if (postTag.text.toString().trim().isEmpty()) {
-            toast("Please add #tag")
-            postTag.setError("Please add #tag")
+            toast("Please add Plate no.")
+            postTag.setError("Please add Plate no.")
             return
         }
         // ThumbnailUtils.createVideoThumbnail(File((imageUri as Uri).path), Size(100,100),null)
@@ -167,7 +169,7 @@ postCaption.setOnTouchListener(object:View.OnTouchListener{
         val meme = Meme()
         meme.caption = postCaption.text.toString().trim()
         meme.city = postCity.text.toString().trim()
-        meme.hashTag = "#${postTag.text.toString().trim()}"
+        meme.hashTag = "${postTag.text.toString().trim()}"
         meme.likesCount = 0
         meme.commentsCount = 0
         meme.memePoster = sessionManager.getUsername()
@@ -275,16 +277,8 @@ postCaption.setOnTouchListener(object:View.OnTouchListener{
             MaterialAlertDialogBuilder(this, R.style.ALertTheme)
 
                     .setMessage("Remove selected image?")
-                    .setPositiveButton("Remove", object : DialogInterface.OnClickListener {
-                        override fun onClick(p0: DialogInterface?, p1: Int) {
-                            showSelectImage()
-                        }
-                    })
-                    .setNegativeButton("Cancel", object : DialogInterface.OnClickListener {
-                        override fun onClick(p0: DialogInterface?, p1: Int) {
-                            p0!!.cancel()
-                        }
-                    })
+                    .setPositiveButton("Remove") { p0, p1 -> showSelectImage() }
+                    .setNegativeButton("Cancel") { p0, p1 -> p0!!.cancel() }
                     .show();
             /* alert("Remove selected image?") {
              positiveButton("Remove") {

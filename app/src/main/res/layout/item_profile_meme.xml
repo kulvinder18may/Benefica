@@ -5,18 +5,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <import type="com.benfica.app.R"/>
+        <import type="com.mysqldatabase.app.R"/>
 
         <variable
             name="meme"
-            type="com.benfica.app.data.models.Meme" />
+            type="com.mysqldatabase.app.data.models.Meme" />
 
         <variable
             name="callback"
-            type="com.benfica.app.ui.callbacks.ProfileMemesCallback" />
+            type="com.mysqldatabase.app.ui.callbacks.ProfileMemesCallback" />
     </data>
 
-    <com.benfica.app.utils.SquareLayout
+    <com.mysqldatabase.app.utils.SquareLayout
         android:id="@+id/parent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -30,5 +30,5 @@
             bind:image="@{meme.imageUrl}"
             bind:placeholder="@{@drawable/loading}"/>
 
-    </com.benfica.app.utils.SquareLayout>
+    </com.mysqldatabase.app.utils.SquareLayout>
 </layout>

@@ -1,7 +1,7 @@
-package com.benfica.app.ui.callbacks
+package com.mysqldatabase.app.ui.callbacks
 
 import android.view.View
-import com.benfica.app.data.models.Fave
+import com.mysqldatabase.app.data.models.Fave
 import com.makeramen.roundedimageview.RoundedImageView
 
 interface FavesCallback {

@@ -1,4 +1,4 @@
-package com.benfica.app.ui.base
+package com.mysqldatabase.app.ui.base
 
 
 import android.app.ProgressDialog
@@ -6,10 +6,10 @@ import android.content.Intent
 import android.graphics.Bitmap
 import androidx.fragment.app.Fragment
 import br.com.simplepass.loadingbutton.customViews.CircularProgressButton
-import com.benfica.app.R
-import com.benfica.app.data.models.User
-import com.benfica.app.ui.activities.MainActivity
-import com.benfica.app.utils.*
+import com.mysqldatabase.app.R
+import com.mysqldatabase.app.data.models.User
+import com.mysqldatabase.app.ui.activities.MainActivity
+import com.mysqldatabase.app.utils.*
 import com.google.firebase.messaging.FirebaseMessaging
 import com.mikepenz.ionicons_typeface_library.Ionicons
 import org.jetbrains.anko.longToast

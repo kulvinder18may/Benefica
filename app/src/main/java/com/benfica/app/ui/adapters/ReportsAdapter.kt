@@ -1,17 +1,17 @@
-package com.benfica.app.ui.adapters
+package com.mysqldatabase.app.ui.adapters
 
 import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.benfica.app.R
-import com.benfica.app.data.models.Report
-import com.benfica.app.databinding.ItemReportBinding
-import com.benfica.app.ui.callbacks.ReportsCallback
-import com.benfica.app.utils.AppUtils
-import com.benfica.app.utils.TimeFormatter
-import com.benfica.app.utils.inflate
-import com.benfica.app.utils.setDrawable
+import com.mysqldatabase.app.R
+import com.mysqldatabase.app.data.models.Report
+import com.mysqldatabase.app.databinding.ItemReportBinding
+import com.mysqldatabase.app.ui.callbacks.ReportsCallback
+import com.mysqldatabase.app.utils.AppUtils
+import com.mysqldatabase.app.utils.TimeFormatter
+import com.mysqldatabase.app.utils.inflate
+import com.mysqldatabase.app.utils.setDrawable
 import com.mikepenz.ionicons_typeface_library.Ionicons
 
 

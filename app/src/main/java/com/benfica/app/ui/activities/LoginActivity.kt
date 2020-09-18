@@ -1,13 +1,13 @@
-package com.benfica.app.ui.activities
+package com.mysqldatabase.app.ui.activities
 
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
-import com.benfica.app.R
-import com.benfica.app.ui.base.BaseActivity
-import com.benfica.app.ui.fragments.LoginFragment
-import com.benfica.app.ui.fragments.SignupFragment
-import com.benfica.app.utils.addFragment
+import com.mysqldatabase.app.R
+import com.mysqldatabase.app.ui.base.BaseActivity
+import com.mysqldatabase.app.ui.fragments.LoginFragment
+import com.mysqldatabase.app.ui.fragments.SignupFragment
+import com.mysqldatabase.app.utils.addFragment
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
 import org.jetbrains.anko.toast

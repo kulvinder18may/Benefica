@@ -1,7 +1,7 @@
-package com.benfica.app.data.responses
+package com.mysqldatabase.app.data.responses
 
-import com.benfica.app.data.Status
-import com.benfica.app.data.models.Comment
+import com.mysqldatabase.app.data.Status
+import com.mysqldatabase.app.data.models.Comment
 
 data class CommentsResponse(
         val status: Status,

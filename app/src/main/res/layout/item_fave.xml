@@ -6,18 +6,18 @@
 
     <data>
 
-        <import type="com.benfica.app.R" />
+        <import type="com.mysqldatabase.app.R" />
 
         <variable
             name="meme"
-            type="com.benfica.app.data.models.Fave" />
+            type="com.mysqldatabase.app.data.models.Fave" />
 
         <variable
             name="callback"
-            type="com.benfica.app.ui.callbacks.FavesCallback" />
+            type="com.mysqldatabase.app.ui.callbacks.FavesCallback" />
         <variable
             name="timeFormatter"
-            type="com.benfica.app.utils.TimeFormatter" />
+            type="com.mysqldatabase.app.utils.TimeFormatter" />
     </data>
 
     <LinearLayout
@@ -113,7 +113,7 @@
             android:layout_marginBottom="5dp"
             android:layout_marginLeft="5dp"
             android:textColor="@color/color_text_primary"/>
-        <com.benfica.app.utils.SquareLayout
+        <com.mysqldatabase.app.utils.SquareLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <FrameLayout
@@ -150,7 +150,7 @@
 
                     android:src="@android:drawable/ic_media_play"/>
             </FrameLayout>
-        </com.benfica.app.utils.SquareLayout>
+        </com.mysqldatabase.app.utils.SquareLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

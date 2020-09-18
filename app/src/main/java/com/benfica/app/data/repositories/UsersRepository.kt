@@ -1,15 +1,15 @@
-package com.benfica.app.data.repositories
+package com.mysqldatabase.app.data.repositories
 
 import android.net.Uri
-import com.benfica.app.data.Result
-import com.benfica.app.data.models.User
-import com.benfica.app.data.responses.GoogleLoginResponse
-import com.benfica.app.data.wrappers.ObservableUser
-import com.benfica.app.ui.callbacks.StorageUploadListener
-import com.benfica.app.utils.AppUtils
-import com.benfica.app.utils.Constants
-import com.benfica.app.utils.TimeFormatter
-import com.benfica.app.utils.get
+import com.mysqldatabase.app.data.Result
+import com.mysqldatabase.app.data.models.User
+import com.mysqldatabase.app.data.responses.GoogleLoginResponse
+import com.mysqldatabase.app.data.wrappers.ObservableUser
+import com.mysqldatabase.app.ui.callbacks.StorageUploadListener
+import com.mysqldatabase.app.utils.AppUtils
+import com.mysqldatabase.app.utils.Constants
+import com.mysqldatabase.app.utils.TimeFormatter
+import com.mysqldatabase.app.utils.get
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.*

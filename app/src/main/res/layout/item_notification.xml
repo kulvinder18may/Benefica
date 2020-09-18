@@ -3,19 +3,19 @@
     xmlns:bind="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <import type="com.benfica.app.R"/>
+        <import type="com.mysqldatabase.app.R"/>
 
         <variable
             name="notification"
-            type="com.benfica.app.data.models.Notification" />
+            type="com.mysqldatabase.app.data.models.Notification" />
 
         <variable
             name="callback"
-            type="com.benfica.app.ui.callbacks.NotificationsCallback" />
+            type="com.mysqldatabase.app.ui.callbacks.NotificationsCallback" />
 
         <variable
             name="timeFormatter"
-            type="com.benfica.app.utils.TimeFormatter" />
+            type="com.mysqldatabase.app.utils.TimeFormatter" />
     </data>
 
     <RelativeLayout

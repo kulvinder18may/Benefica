@@ -1,12 +1,12 @@
-package com.benfica.app
+package com.mysqldatabase.app
 
 import android.content.Context
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.multidex.MultiDexApplication
 import cat.ereza.customactivityoncrash.config.CaocConfig
-import com.benfica.app.di.*
-import com.benfica.app.utils.Constants
-import com.benfica.app.utils.SessionManager
+import com.mysqldatabase.app.di.*
+import com.mysqldatabase.app.utils.Constants
+import com.mysqldatabase.app.utils.SessionManager
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.FirebaseApp
 import com.google.firebase.database.FirebaseDatabase

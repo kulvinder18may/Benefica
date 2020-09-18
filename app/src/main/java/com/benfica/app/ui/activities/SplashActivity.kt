@@ -1,11 +1,11 @@
-package com.benfica.app.ui.activities
+package com.mysqldatabase.app.ui.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.benfica.app.R
-import com.benfica.app.utils.AppUtils
-import com.benfica.app.utils.SessionManager
+import com.mysqldatabase.app.R
+import com.mysqldatabase.app.utils.AppUtils
+import com.mysqldatabase.app.utils.SessionManager
 import org.koin.android.ext.android.inject
 
 class SplashActivity : AppCompatActivity() {

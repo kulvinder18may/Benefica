@@ -1,16 +1,16 @@
-package com.benfica.app.ui.adapters
+package com.mysqldatabase.app.ui.adapters
 
 import android.view.ViewGroup
 import androidx.paging.PagedList
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.benfica.app.R
-import com.benfica.app.data.models.Fave
-import com.benfica.app.databinding.ItemFaveBinding
-import com.benfica.app.ui.callbacks.FavesCallback
-import com.benfica.app.utils.TimeFormatter
-import com.benfica.app.utils.inflate
+import com.mysqldatabase.app.R
+import com.mysqldatabase.app.data.models.Fave
+import com.mysqldatabase.app.databinding.ItemFaveBinding
+import com.mysqldatabase.app.ui.callbacks.FavesCallback
+import com.mysqldatabase.app.utils.TimeFormatter
+import com.mysqldatabase.app.utils.inflate
 import timber.log.Timber
 
 class FavesAdapter(private val callback: FavesCallback): PagedListAdapter<Fave, FavesAdapter.FaveHolder>(DIFF_CALLBACK) {

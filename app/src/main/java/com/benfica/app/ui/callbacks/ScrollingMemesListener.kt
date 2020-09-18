@@ -1,4 +1,4 @@
-package com.benfica.app.ui.callbacks
+package com.mysqldatabase.app.ui.callbacks
 
 interface ScrollingMemesListener {
     fun hideFab()

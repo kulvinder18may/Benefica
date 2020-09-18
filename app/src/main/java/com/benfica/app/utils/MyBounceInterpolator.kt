@@ -1,4 +1,4 @@
-package com.benfica.app.utils
+package com.mysqldatabase.app.utils
 
 class MyBounceInterpolator(amplitude: Double, frequency: Double) : android.view.animation.Interpolator {
     private var mAmplitude = 1.0

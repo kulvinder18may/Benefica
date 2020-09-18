@@ -1,4 +1,4 @@
-package com.benfica.app.utils
+package com.mysqldatabase.app.utils
 
 import android.Manifest
 import android.app.Activity
@@ -25,9 +25,9 @@ import android.view.animation.AnimationUtils
 import android.widget.EditText
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.benfica.app.R
-import com.benfica.app.data.events.ScrollingEvent
-import com.benfica.app.ui.callbacks.StorageUploadListener
+import com.mysqldatabase.app.R
+import com.mysqldatabase.app.data.events.ScrollingEvent
+import com.mysqldatabase.app.ui.callbacks.StorageUploadListener
 import com.bumptech.glide.Glide
 import com.google.firebase.storage.StorageReference
 import com.karumi.dexter.Dexter

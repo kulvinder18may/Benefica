@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Benfica</string>
+    <string name="app_name">Saferoad</string>
 
     <!-- Fragment titles-->
     <string name="fragment_home">Home</string>
@@ -57,7 +57,7 @@
     <string name="hint_new_comment">Add new comment…</string>
     <string name="hint_caption">Write caption…</string>
     <string name="hint_city">City</string>
-    <string name="hint_hashtag">#tag</string>
+    <string name="hint_hashtag">Plate no</string>
 
     <!-- Empty State labels-->
     <string name="empty_faves">No favorites found</string>

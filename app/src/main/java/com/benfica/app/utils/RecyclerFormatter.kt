@@ -1,4 +1,4 @@
-package com.benfica.app.utils;
+package com.mysqldatabase.app.utils;
 
 import android.content.Context
 import android.graphics.Canvas
@@ -6,7 +6,7 @@ import android.graphics.Rect
 import android.graphics.drawable.Drawable
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.benfica.app.R
+import com.mysqldatabase.app.R
 import androidx.core.content.ContextCompat as ContextCompat1
 
 class RecyclerFormatter {

@@ -1,4 +1,4 @@
-package com.benfica.app.data
+package com.mysqldatabase.app.data
 
 enum class Status {
     LOADING,

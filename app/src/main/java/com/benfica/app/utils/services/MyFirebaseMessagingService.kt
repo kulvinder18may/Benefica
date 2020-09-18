@@ -1,11 +1,11 @@
-package com.benfica.app.utils.services
+package com.mysqldatabase.app.utils.services
 
 import android.content.Context
 import android.content.Intent
 import android.util.Log
-import com.benfica.app.utils.Constants
-import com.benfica.app.utils.NotificationUtils
-import com.benfica.app.utils.SessionManager
+import com.mysqldatabase.app.utils.Constants
+import com.mysqldatabase.app.utils.NotificationUtils
+import com.mysqldatabase.app.utils.SessionManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.messaging.FirebaseMessagingService

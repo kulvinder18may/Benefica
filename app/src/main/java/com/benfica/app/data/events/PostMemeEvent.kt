@@ -1,4 +1,4 @@
-package com.benfica.app.data.events
+package com.mysqldatabase.app.data.events
 
 data class PostMemeEvent(
         val type: TYPE

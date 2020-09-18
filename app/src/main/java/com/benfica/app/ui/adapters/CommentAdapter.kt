@@ -1,17 +1,17 @@
-package com.benfica.app.ui.adapters
+package com.mysqldatabase.app.ui.adapters
 
 import android.view.ViewGroup
 import androidx.paging.PagedList
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.benfica.app.R
-import com.benfica.app.data.models.Comment
-import com.benfica.app.data.wrappers.ObservableComment
-import com.benfica.app.databinding.ItemCommentBinding
-import com.benfica.app.ui.callbacks.CommentsCallback
-import com.benfica.app.utils.TimeFormatter
-import com.benfica.app.utils.inflate
+import com.mysqldatabase.app.R
+import com.mysqldatabase.app.data.models.Comment
+import com.mysqldatabase.app.data.wrappers.ObservableComment
+import com.mysqldatabase.app.databinding.ItemCommentBinding
+import com.mysqldatabase.app.ui.callbacks.CommentsCallback
+import com.mysqldatabase.app.utils.TimeFormatter
+import com.mysqldatabase.app.utils.inflate
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.addTo
 import io.reactivex.rxkotlin.subscribeBy

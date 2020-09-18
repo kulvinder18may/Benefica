@@ -6,11 +6,11 @@
     <data>
         <variable
             name="meme"
-            type="com.benfica.app.data.models.PendingMeme" />
+            type="com.mysqldatabase.app.data.models.PendingMeme" />
 
         <variable
             name="callback"
-            type="com.benfica.app.ui.callbacks.PendingMemesCallback" />
+            type="com.mysqldatabase.app.ui.callbacks.PendingMemesCallback" />
 
     </data>
 

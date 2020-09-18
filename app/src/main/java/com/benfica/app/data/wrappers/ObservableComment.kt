@@ -1,6 +1,6 @@
-package com.benfica.app.data.wrappers
+package com.mysqldatabase.app.data.wrappers
 
-import com.benfica.app.data.models.Comment
+import com.mysqldatabase.app.data.models.Comment
 import io.reactivex.Observable
 
 data class ObservableComment(

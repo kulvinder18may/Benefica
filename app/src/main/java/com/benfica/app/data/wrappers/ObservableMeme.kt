@@ -1,6 +1,6 @@
-package com.benfica.app.data.wrappers
+package com.mysqldatabase.app.data.wrappers
 
-import com.benfica.app.data.models.Meme
+import com.mysqldatabase.app.data.models.Meme
 import io.reactivex.Observable
 
 data class ObservableMeme(

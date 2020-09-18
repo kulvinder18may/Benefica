@@ -1,4 +1,4 @@
-package com.benfica.app.ui.activities
+package com.mysqldatabase.app.ui.activities
 
 import android.os.Bundle
 import android.view.MenuItem
@@ -7,17 +7,17 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.paging.PagedList
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.benfica.app.R
-import com.benfica.app.data.Status
-import com.benfica.app.data.models.Meme
-import com.benfica.app.data.models.PendingMeme
-import com.benfica.app.data.responses.GenericResponse
-import com.benfica.app.databinding.ActivityPendingMemesBinding
-import com.benfica.app.ui.adapters.PendingMemesAdapter
-import com.benfica.app.ui.base.BaseActivity
-import com.benfica.app.ui.callbacks.PendingMemesCallback
-import com.benfica.app.ui.viewmodels.MemesViewModel
-import com.benfica.app.utils.*
+import com.mysqldatabase.app.R
+import com.mysqldatabase.app.data.Status
+import com.mysqldatabase.app.data.models.Meme
+import com.mysqldatabase.app.data.models.PendingMeme
+import com.mysqldatabase.app.data.responses.GenericResponse
+import com.mysqldatabase.app.databinding.ActivityPendingMemesBinding
+import com.mysqldatabase.app.ui.adapters.PendingMemesAdapter
+import com.mysqldatabase.app.ui.base.BaseActivity
+import com.mysqldatabase.app.ui.callbacks.PendingMemesCallback
+import com.mysqldatabase.app.ui.viewmodels.MemesViewModel
+import com.mysqldatabase.app.utils.*
 import kotlinx.android.synthetic.main.activity_pending_memes.*
 import org.jetbrains.anko.alert
 import org.jetbrains.anko.toast

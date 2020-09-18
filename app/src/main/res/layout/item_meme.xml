@@ -7,19 +7,19 @@
     xmlns:bind="http://schemas.android.com/tools">
 
     <data>
-        <import type="com.benfica.app.R"/>
+        <import type="com.mysqldatabase.app.R"/>
 
         <variable
             name="meme"
-            type="com.benfica.app.data.models.Meme" />
+            type="com.mysqldatabase.app.data.models.Meme" />
 
         <variable
             name="callback"
-            type="com.benfica.app.ui.callbacks.MemesCallback" />
+            type="com.mysqldatabase.app.ui.callbacks.MemesCallback" />
 
         <variable
             name="timeFormatter"
-            type="com.benfica.app.utils.TimeFormatter" />
+            type="com.mysqldatabase.app.utils.TimeFormatter" />
     </data>
 
     <RelativeLayout

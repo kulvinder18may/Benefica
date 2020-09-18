@@ -1,10 +1,10 @@
-package com.benfica.app.data.datasource
+package com.mysqldatabase.app.data.datasource
 
 import androidx.paging.DataSource
 import androidx.paging.ItemKeyedDataSource
-import com.benfica.app.data.Status
-import com.benfica.app.data.models.Report
-import com.benfica.app.data.repositories.ReportsRepository
+import com.mysqldatabase.app.data.Status
+import com.mysqldatabase.app.data.models.Report
+import com.mysqldatabase.app.data.repositories.ReportsRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import org.koin.core.KoinComponent

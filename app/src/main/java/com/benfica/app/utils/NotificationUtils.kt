@@ -1,4 +1,4 @@
-package com.benfica.app.utils
+package com.mysqldatabase.app.utils
 
 import android.app.NotificationManager
 import android.app.ActivityManager
@@ -16,7 +16,7 @@ import android.content.Intent
 import android.net.Uri
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
-import com.benfica.app.R
+import com.mysqldatabase.app.R
 import java.io.IOException
 import java.net.HttpURLConnection
 import java.net.URL

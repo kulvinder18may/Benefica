@@ -1,4 +1,4 @@
-package com.benfica.app.utils;
+package com.mysqldatabase.app.utils;
 
 import android.content.Context
 import android.content.SharedPreferences

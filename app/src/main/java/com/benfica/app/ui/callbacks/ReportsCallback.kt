@@ -1,6 +1,6 @@
-package com.benfica.app.ui.callbacks
+package com.mysqldatabase.app.ui.callbacks
 
-import com.benfica.app.data.models.Report
+import com.mysqldatabase.app.data.models.Report
 
 interface ReportsCallback {
     fun onReportClicked(report: Report)

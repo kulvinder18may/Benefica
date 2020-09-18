@@ -1,16 +1,16 @@
-package com.benfica.app.ui.adapters
+package com.mysqldatabase.app.ui.adapters
 
 import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.benfica.app.R
-import com.benfica.app.data.models.PendingMeme
-import com.benfica.app.databinding.ItemPendingMemeBinding
-import com.benfica.app.ui.callbacks.PendingMemesCallback
-import com.benfica.app.utils.AppUtils
-import com.benfica.app.utils.inflate
-import com.benfica.app.utils.setDrawable
+import com.mysqldatabase.app.R
+import com.mysqldatabase.app.data.models.PendingMeme
+import com.mysqldatabase.app.databinding.ItemPendingMemeBinding
+import com.mysqldatabase.app.ui.callbacks.PendingMemesCallback
+import com.mysqldatabase.app.utils.AppUtils
+import com.mysqldatabase.app.utils.inflate
+import com.mysqldatabase.app.utils.setDrawable
 import com.mikepenz.ionicons_typeface_library.Ionicons
 
 class PendingMemesAdapter(private val callback: PendingMemesCallback): PagedListAdapter<PendingMeme,

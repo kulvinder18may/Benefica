@@ -1,7 +1,7 @@
-package com.benfica.app.data.responses
+package com.mysqldatabase.app.data.responses
 
-import com.benfica.app.data.Status
-import com.benfica.app.data.wrappers.ObservableMeme
+import com.mysqldatabase.app.data.Status
+import com.mysqldatabase.app.data.wrappers.ObservableMeme
 
 data class MemesResponse(
         val status: Status,

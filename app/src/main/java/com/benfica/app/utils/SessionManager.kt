@@ -1,11 +1,11 @@
-package com.benfica.app.utils
+package com.mysqldatabase.app.utils
 
 import android.content.Context
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatDelegate
-import com.benfica.app.data.models.User
-import com.benfica.app.utils.PreferenceHelper.set
-import com.benfica.app.utils.PreferenceHelper.get
+import com.mysqldatabase.app.data.models.User
+import com.mysqldatabase.app.utils.PreferenceHelper.set
+import com.mysqldatabase.app.utils.PreferenceHelper.get
 import timber.log.Timber
 
 class SessionManager (context: Context) {

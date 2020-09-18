@@ -1,4 +1,4 @@
-package com.benfica.app.ui.fragments
+package com.mysqldatabase.app.ui.fragments
 
 
 import android.content.DialogInterface
@@ -11,18 +11,18 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
-import com.benfica.app.R
-import com.benfica.app.data.Status
-import com.benfica.app.data.events.PostMemeEvent
-import com.benfica.app.data.models.Fave
-import com.benfica.app.databinding.FragmentFavesBinding
-import com.benfica.app.ui.activities.VideoPlayActivity
-import com.benfica.app.ui.activities.ViewMemeActivity
-import com.benfica.app.ui.adapters.FavesAdapter
-import com.benfica.app.ui.base.BaseFragment
-import com.benfica.app.ui.callbacks.FavesCallback
-import com.benfica.app.ui.viewmodels.MemesViewModel
-import com.benfica.app.utils.*
+import com.mysqldatabase.app.R
+import com.mysqldatabase.app.data.Status
+import com.mysqldatabase.app.data.events.PostMemeEvent
+import com.mysqldatabase.app.data.models.Fave
+import com.mysqldatabase.app.databinding.FragmentFavesBinding
+import com.mysqldatabase.app.ui.activities.VideoPlayActivity
+import com.mysqldatabase.app.ui.activities.ViewMemeActivity
+import com.mysqldatabase.app.ui.adapters.FavesAdapter
+import com.mysqldatabase.app.ui.base.BaseFragment
+import com.mysqldatabase.app.ui.callbacks.FavesCallback
+import com.mysqldatabase.app.ui.viewmodels.MemesViewModel
+import com.mysqldatabase.app.utils.*
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.makeramen.roundedimageview.RoundedDrawable
 import com.makeramen.roundedimageview.RoundedImageView

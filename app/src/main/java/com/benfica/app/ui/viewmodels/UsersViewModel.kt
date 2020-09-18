@@ -1,13 +1,13 @@
-package com.benfica.app.ui.viewmodels
+package com.mysqldatabase.app.ui.viewmodels
 
 import android.net.Uri
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.benfica.app.data.Result
-import com.benfica.app.data.models.User
-import com.benfica.app.data.repositories.UsersRepository
-import com.benfica.app.data.responses.*
+import com.mysqldatabase.app.data.Result
+import com.mysqldatabase.app.data.models.User
+import com.mysqldatabase.app.data.repositories.UsersRepository
+import com.mysqldatabase.app.data.responses.*
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import kotlinx.coroutines.launch
 import timber.log.Timber

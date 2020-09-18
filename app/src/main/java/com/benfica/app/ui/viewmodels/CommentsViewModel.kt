@@ -1,4 +1,4 @@
-package com.benfica.app.ui.viewmodels
+package com.mysqldatabase.app.ui.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -6,13 +6,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
-import com.benfica.app.data.Result
-import com.benfica.app.data.datasource.CommentsDataSource
-import com.benfica.app.data.models.Comment
-import com.benfica.app.data.repositories.CommentsRepository
-import com.benfica.app.data.responses.CommentsResponse
-import com.benfica.app.data.responses.GenericResponse
-import com.benfica.app.data.wrappers.ObservableComment
+import com.mysqldatabase.app.data.Result
+import com.mysqldatabase.app.data.datasource.CommentsDataSource
+import com.mysqldatabase.app.data.models.Comment
+import com.mysqldatabase.app.data.repositories.CommentsRepository
+import com.mysqldatabase.app.data.responses.CommentsResponse
+import com.mysqldatabase.app.data.responses.GenericResponse
+import com.mysqldatabase.app.data.wrappers.ObservableComment
 import kotlinx.coroutines.launch
 
 class CommentsViewModel constructor(private val repository: CommentsRepository): ViewModel() {

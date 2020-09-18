@@ -1,16 +1,16 @@
-package com.benfica.app.ui.adapters
+package com.mysqldatabase.app.ui.adapters
 
 import android.view.ViewGroup
 import androidx.paging.PagedList
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.benfica.app.R
-import com.benfica.app.data.models.Notification
-import com.benfica.app.databinding.ItemNotificationBinding
-import com.benfica.app.ui.callbacks.NotificationsCallback
-import com.benfica.app.utils.TimeFormatter
-import com.benfica.app.utils.inflate
+import com.mysqldatabase.app.R
+import com.mysqldatabase.app.data.models.Notification
+import com.mysqldatabase.app.databinding.ItemNotificationBinding
+import com.mysqldatabase.app.ui.callbacks.NotificationsCallback
+import com.mysqldatabase.app.utils.TimeFormatter
+import com.mysqldatabase.app.utils.inflate
 import timber.log.Timber
 
 

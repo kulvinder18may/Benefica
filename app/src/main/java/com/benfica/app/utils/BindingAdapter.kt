@@ -1,4 +1,4 @@
-package com.benfica.app.utils
+package com.mysqldatabase.app.utils
 
 import android.graphics.drawable.Drawable
 import android.view.View
@@ -7,12 +7,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
-import com.benfica.app.R
-import com.benfica.app.data.models.Comment
-import com.benfica.app.data.models.Fave
-import com.benfica.app.data.models.Notification
-import com.benfica.app.ui.callbacks.CommentsCallback
-import com.benfica.app.ui.callbacks.FavesCallback
+import com.mysqldatabase.app.R
+import com.mysqldatabase.app.data.models.Comment
+import com.mysqldatabase.app.data.models.Fave
+import com.mysqldatabase.app.data.models.Notification
+import com.mysqldatabase.app.ui.callbacks.CommentsCallback
+import com.mysqldatabase.app.ui.callbacks.FavesCallback
 import com.makeramen.roundedimageview.RoundedImageView
 import com.mikepenz.fontawesome_typeface_library.FontAwesome
 import com.mikepenz.ionicons_typeface_library.Ionicons

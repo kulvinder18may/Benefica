@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <import type="com.benfica.app.R"/>
+        <import type="com.mysqldatabase.app.R"/>
     </data>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout

@@ -1,4 +1,4 @@
-package com.benfica.app.ui.activities
+package com.mysqldatabase.app.ui.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,16 +6,16 @@ import android.view.MenuItem
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.benfica.app.R
-import com.benfica.app.data.Status
-import com.benfica.app.data.models.Report
-import com.benfica.app.databinding.ActivityReportsBinding
-import com.benfica.app.ui.adapters.ReportsAdapter
-import com.benfica.app.ui.base.BaseActivity
-import com.benfica.app.ui.callbacks.ReportsCallback
-import com.benfica.app.ui.viewmodels.ReportsViewModel
-import com.benfica.app.ui.viewmodels.UsersViewModel
-import com.benfica.app.utils.*
+import com.mysqldatabase.app.R
+import com.mysqldatabase.app.data.Status
+import com.mysqldatabase.app.data.models.Report
+import com.mysqldatabase.app.databinding.ActivityReportsBinding
+import com.mysqldatabase.app.ui.adapters.ReportsAdapter
+import com.mysqldatabase.app.ui.base.BaseActivity
+import com.mysqldatabase.app.ui.callbacks.ReportsCallback
+import com.mysqldatabase.app.ui.viewmodels.ReportsViewModel
+import com.mysqldatabase.app.ui.viewmodels.UsersViewModel
+import com.mysqldatabase.app.utils.*
 import kotlinx.android.synthetic.main.activity_reports.*
 import org.jetbrains.anko.longToast
 import org.jetbrains.anko.toast

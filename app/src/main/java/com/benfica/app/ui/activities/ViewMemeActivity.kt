@@ -1,17 +1,17 @@
-package com.benfica.app.ui.activities
+package com.mysqldatabase.app.ui.activities
 
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.view.View
-import com.benfica.app.R
-import com.benfica.app.ui.base.BaseActivity
-import com.benfica.app.utils.Constants
-import com.benfica.app.utils.load
+import com.mysqldatabase.app.R
+import com.mysqldatabase.app.ui.base.BaseActivity
+import com.mysqldatabase.app.utils.Constants
+import com.mysqldatabase.app.utils.load
 import kotlinx.android.synthetic.main.activity_view_meme.*
 import android.view.WindowManager
 import android.os.Build
 import androidx.core.content.ContextCompat
-import com.benfica.app.utils.AppUtils
+import com.mysqldatabase.app.utils.AppUtils
 
 
 class ViewMemeActivity : BaseActivity() {

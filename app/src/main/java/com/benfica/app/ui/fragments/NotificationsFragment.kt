@@ -1,4 +1,4 @@
-package com.benfica.app.ui.fragments
+package com.mysqldatabase.app.ui.fragments
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,16 +8,16 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.benfica.app.R
-import com.benfica.app.ui.activities.ProfileActivity
-import com.benfica.app.ui.adapters.NotificationsAdapter
-import com.benfica.app.ui.callbacks.NotificationsCallback
-import com.benfica.app.ui.base.BaseFragment
-import com.benfica.app.data.models.Notification
-import com.benfica.app.databinding.FragmentNotificationsBinding
-import com.benfica.app.ui.activities.MemeActivity
-import com.benfica.app.ui.viewmodels.NotificationsViewModel
-import com.benfica.app.utils.*
+import com.mysqldatabase.app.R
+import com.mysqldatabase.app.ui.activities.ProfileActivity
+import com.mysqldatabase.app.ui.adapters.NotificationsAdapter
+import com.mysqldatabase.app.ui.callbacks.NotificationsCallback
+import com.mysqldatabase.app.ui.base.BaseFragment
+import com.mysqldatabase.app.data.models.Notification
+import com.mysqldatabase.app.databinding.FragmentNotificationsBinding
+import com.mysqldatabase.app.ui.activities.MemeActivity
+import com.mysqldatabase.app.ui.viewmodels.NotificationsViewModel
+import com.mysqldatabase.app.utils.*
 import kotlinx.android.synthetic.main.fragment_notifications.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

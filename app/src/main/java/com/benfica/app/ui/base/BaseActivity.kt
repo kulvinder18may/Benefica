@@ -1,4 +1,4 @@
-package com.benfica.app.ui.base
+package com.mysqldatabase.app.ui.base
 
 import android.app.ProgressDialog
 import android.media.MediaMetadataRetriever
@@ -9,10 +9,10 @@ import android.provider.MediaStore
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import com.benfica.app.R
-import com.benfica.app.utils.Constants
-import com.benfica.app.utils.SessionManager
-import com.benfica.app.utils.TimeFormatter
+import com.mysqldatabase.app.R
+import com.mysqldatabase.app.utils.Constants
+import com.mysqldatabase.app.utils.SessionManager
+import com.mysqldatabase.app.utils.TimeFormatter
 import com.google.firebase.database.DatabaseReference
 import com.nostra13.universalimageloader.core.ImageLoader
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration

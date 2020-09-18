@@ -1,11 +1,11 @@
-package com.benfica.app.data.repositories
+package com.mysqldatabase.app.data.repositories
 
-import com.benfica.app.data.Result
-import com.benfica.app.data.models.Comment
-import com.benfica.app.data.models.Meme
-import com.benfica.app.data.wrappers.ObservableComment
-import com.benfica.app.utils.Constants
-import com.benfica.app.utils.get
+import com.mysqldatabase.app.data.Result
+import com.mysqldatabase.app.data.models.Comment
+import com.mysqldatabase.app.data.models.Meme
+import com.mysqldatabase.app.data.wrappers.ObservableComment
+import com.mysqldatabase.app.utils.Constants
+import com.mysqldatabase.app.utils.get
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query

@@ -1,6 +1,6 @@
-package com.benfica.app.data.models
+package com.mysqldatabase.app.data.models
 
-import com.benfica.app.utils.Constants
+import com.mysqldatabase.app.utils.Constants
 import java.io.Serializable
 
 data class User(

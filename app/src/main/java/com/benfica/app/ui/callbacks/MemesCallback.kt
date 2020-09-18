@@ -1,8 +1,8 @@
-package com.benfica.app.ui.callbacks
+package com.mysqldatabase.app.ui.callbacks
 
 import android.view.View
-import com.benfica.app.data.models.Meme
-import com.benfica.app.data.models.User
+import com.mysqldatabase.app.data.models.Meme
+import com.mysqldatabase.app.data.models.User
 import de.hdodenhof.circleimageview.CircleImageView
 
 interface MemesCallback {

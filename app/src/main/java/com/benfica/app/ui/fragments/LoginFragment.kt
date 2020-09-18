@@ -1,4 +1,4 @@
-package com.benfica.app.ui.fragments
+package com.mysqldatabase.app.ui.fragments
 
 
 import android.content.Intent
@@ -10,16 +10,16 @@ import android.widget.EditText
 import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import com.benfica.app.R
-import com.benfica.app.data.Status
-import com.benfica.app.data.models.User
-import com.benfica.app.ui.base.BaseFragment
-import com.benfica.app.ui.viewmodels.UsersViewModel
-import com.benfica.app.utils.AppUtils
-import com.benfica.app.utils.AppUtils.getDrawable
-import com.benfica.app.utils.TimeFormatter
-import com.benfica.app.utils.replaceFragment
-import com.benfica.app.utils.setDrawable
+import com.mysqldatabase.app.R
+import com.mysqldatabase.app.data.Status
+import com.mysqldatabase.app.data.models.User
+import com.mysqldatabase.app.ui.base.BaseFragment
+import com.mysqldatabase.app.ui.viewmodels.UsersViewModel
+import com.mysqldatabase.app.utils.AppUtils
+import com.mysqldatabase.app.utils.AppUtils.getDrawable
+import com.mysqldatabase.app.utils.TimeFormatter
+import com.mysqldatabase.app.utils.replaceFragment
+import com.mysqldatabase.app.utils.setDrawable
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.SignInButton

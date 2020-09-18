@@ -1,4 +1,4 @@
-package com.benfica.app.ui.viewmodels
+package com.mysqldatabase.app.ui.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -6,9 +6,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
-import com.benfica.app.data.datasource.NotificationsDataSource
-import com.benfica.app.data.models.Notification
-import com.benfica.app.data.repositories.NotificationsRepository
+import com.mysqldatabase.app.data.datasource.NotificationsDataSource
+import com.mysqldatabase.app.data.models.Notification
+import com.mysqldatabase.app.data.repositories.NotificationsRepository
 
 class NotificationsViewModel constructor(private val repository: NotificationsRepository): ViewModel() {
     private var _notificationsLiveData: LiveData<PagedList<Notification>>

@@ -1,4 +1,4 @@
-package com.benfica.app.ui.activities
+package com.mysqldatabase.app.ui.activities
 
 import android.app.Activity
 import android.content.Intent
@@ -7,15 +7,15 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.view.MenuItem
 import androidx.lifecycle.Observer
-import com.benfica.app.R
-import com.benfica.app.data.Status
-import com.benfica.app.data.responses.GenericResponse
-import com.benfica.app.ui.base.BaseActivity
-import com.benfica.app.ui.viewmodels.UsersViewModel
-import com.benfica.app.utils.AppUtils
-import com.benfica.app.utils.Constants
-import com.benfica.app.utils.TimeFormatter
-import com.benfica.app.utils.load
+import com.mysqldatabase.app.R
+import com.mysqldatabase.app.data.Status
+import com.mysqldatabase.app.data.responses.GenericResponse
+import com.mysqldatabase.app.ui.base.BaseActivity
+import com.mysqldatabase.app.ui.viewmodels.UsersViewModel
+import com.mysqldatabase.app.utils.AppUtils
+import com.mysqldatabase.app.utils.Constants
+import com.mysqldatabase.app.utils.TimeFormatter
+import com.mysqldatabase.app.utils.load
 import com.mikepenz.ionicons_typeface_library.Ionicons
 import com.theartofdev.edmodo.cropper.CropImage
 import com.theartofdev.edmodo.cropper.CropImageView

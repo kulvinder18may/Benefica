@@ -1,6 +1,6 @@
-package com.benfica.app.data.responses
+package com.mysqldatabase.app.data.responses
 
-import com.benfica.app.data.Status
+import com.mysqldatabase.app.data.Status
 
 data class GenericResponse (
         val status: Status,

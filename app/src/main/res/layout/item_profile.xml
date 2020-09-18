@@ -7,15 +7,15 @@
 
     <data>
 
-        <import type="com.benfica.app.R" />
+        <import type="com.mysqldatabase.app.R" />
 
         <variable
             name="user"
-            type="com.benfica.app.data.models.User" />
+            type="com.mysqldatabase.app.data.models.User" />
 
         <variable
             name="callback"
-            type="com.benfica.app.ui.callbacks.ProfileMemesCallback" />
+            type="com.mysqldatabase.app.ui.callbacks.ProfileMemesCallback" />
 
         <variable
             name="isMe"

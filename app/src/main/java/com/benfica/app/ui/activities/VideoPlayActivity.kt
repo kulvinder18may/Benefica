@@ -1,11 +1,11 @@
-package com.benfica.app.ui.activities
+package com.mysqldatabase.app.ui.activities
 
 import android.os.Bundle
 import androidx.lifecycle.Observer
-import com.benfica.app.R
-import com.benfica.app.ui.base.BaseActivity
-import com.benfica.app.ui.viewmodels.MemesViewModel
-import com.benfica.app.utils.Constants
+import com.mysqldatabase.app.R
+import com.mysqldatabase.app.ui.base.BaseActivity
+import com.mysqldatabase.app.ui.viewmodels.MemesViewModel
+import com.mysqldatabase.app.utils.Constants
 import kotlinx.android.synthetic.main.content_video_play.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

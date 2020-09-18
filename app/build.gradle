@@ -34,7 +34,7 @@ android {
     defaultConfig {
         vectorDrawables.useSupportLibrary = true
 
-        applicationId "com.benfica.app"
+        applicationId "com.mysqldatabase.app"
 
         minSdkVersion 17
         targetSdkVersion 29

@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activities.PostMemeActivity"
-    android:background="@color/color_primary">
+    android:background="@color/color_primary"
+    tools:context=".ui.activities.PostMemeActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/postToolbar"
+        style="?android:actionBarStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="?android:actionBarStyle"
-        android:background="@color/color_primary_variant"
         android:layout_alignParentTop="true"
+        android:background="@color/color_primary_variant"
         android:elevation="1.2dp"
         tools:targetApi="lollipop">
 
@@ -22,10 +22,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:textStyle="bold"
+            android:text="@string/toolbar_post_meme"
             android:textColor="@color/color_text_primary"
             android:textSize="18.2sp"
-            android:text="@string/toolbar_post_meme"/>
+            android:textStyle="bold" />
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -35,9 +35,10 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/postToolbar"
         android:fillViewport="true">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -48,65 +49,70 @@
                     android:id="@+id/postCaption"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="20dp"
-                    android:textSize="15sp"
-                    android:inputType="textMultiLine"
-                    android:hint="@string/hint_caption"
-                    android:textColor="@color/color_text_primary"
-                    android:textColorHint="@color/color_text_secondary"
                     android:background="@color/color_primary"
-                    android:maxLines="5"
                     android:gravity="top"
+                    android:hint="@string/hint_caption"
+                    android:importantForAutofill="no"
+                    android:inputType="textMultiLine"
+                    android:maxLines="5"
                     android:overScrollMode="always"
+                    android:padding="20dp"
                     android:scrollbarStyle="insideInset"
                     android:scrollbars="vertical"
-                    android:importantForAutofill="no" />
+                    android:textColor="@color/color_text_primary"
+                    android:textColorHint="@color/color_text_secondary"
+                    android:textSize="15sp" />
+
                 <LinearLayout
                     android:id="@+id/tagsLL"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:weightSum="2"
-                    android:orientation="horizontal">
-                <EditText
-                    android:id="@+id/postCity"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:padding="10dp"
-                    android:textSize="15sp"
-                    android:inputType="textMultiLine"
-                    android:hint="@string/hint_city"
-                    android:textColor="@color/color_text_primary"
-                    android:textColorHint="@color/color_text_secondary"
-                    android:background="@drawable/white_box"
-                    android:layout_margin="1dp"
-                    android:lines="1"
-                    android:importantForAutofill="no" />
-                <EditText
-                    android:id="@+id/postTag"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:textSize="15sp"
-                    android:inputType="textMultiLine"
-                    android:hint="@string/hint_hashtag"
-                    android:lines="1"
-                    android:textColor="@color/color_text_primary"
-                    android:textColorHint="@color/color_text_secondary"
-                    android:background="@drawable/white_box"
-                    android:layout_margin="1dp"
-                    android:importantForAutofill="no" /></LinearLayout>
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <EditText
+                        android:id="@+id/postCity"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="1dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/white_box"
+                        android:hint="@string/hint_city"
+                        android:importantForAutofill="no"
+                        android:inputType="textMultiLine"
+                        android:lines="1"
+                        android:padding="10dp"
+                        android:textColor="@color/color_text_primary"
+                        android:textColorHint="@color/color_text_secondary"
+                        android:textSize="15sp" />
+
+                    <EditText
+                        android:id="@+id/postTag"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="1dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/white_box"
+                        android:hint="@string/hint_hashtag"
+                        android:importantForAutofill="no"
+                        android:inputType="textMultiLine"
+                        android:lines="1"
+                        android:padding="10dp"
+                        android:maxLength="32"
+                        android:textColor="@color/color_text_primary"
+                        android:textColorHint="@color/color_text_secondary"
+                        android:textSize="15sp" />
+                </LinearLayout>
 
                 <ImageView
                     android:id="@+id/postSelectImage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
+                    android:adjustViewBounds="true"
                     android:background="@android:color/transparent"
                     android:contentDescription="@string/content_image"
                     android:scaleType="fitXY"
-                    android:adjustViewBounds="true"
                     android:visibility="gone" />
 
                 <ImageView
@@ -114,17 +120,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="300dp"
                     android:layout_margin="5dp"
+                    android:adjustViewBounds="true"
                     android:background="@android:color/transparent"
                     android:contentDescription="@string/content_image"
                     android:scaleType="fitXY"
-                    android:adjustViewBounds="true"
                     android:visibility="gone" />
 
                 <ImageButton
                     android:id="@+id/postAddImage"
                     android:layout_width="90dp"
                     android:layout_height="90dp"
-                 android:layout_gravity="center"
+                    android:layout_gravity="center"
                     android:layout_marginTop="30dp"
                     android:background="@android:color/transparent"
                     android:contentDescription="@string/content_select_meme"
@@ -134,9 +140,6 @@
             </LinearLayout>
 
 
-
-
-
-    </RelativeLayout>
+        </RelativeLayout>
     </androidx.core.widget.NestedScrollView>
 </RelativeLayout>

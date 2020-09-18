@@ -1,7 +1,7 @@
-package com.benfica.app.data.repositories
+package com.mysqldatabase.app.data.repositories
 
-import com.benfica.app.data.models.Notification
-import com.benfica.app.utils.Constants
+import com.mysqldatabase.app.data.models.Notification
+import com.mysqldatabase.app.utils.Constants
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import kotlinx.coroutines.tasks.await

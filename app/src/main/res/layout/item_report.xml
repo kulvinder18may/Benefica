@@ -6,15 +6,15 @@
     <data>
         <variable
             name="report"
-            type="com.benfica.app.data.models.Report" />
+            type="com.mysqldatabase.app.data.models.Report" />
 
         <variable
             name="callback"
-            type="com.benfica.app.ui.callbacks.ReportsCallback" />
+            type="com.mysqldatabase.app.ui.callbacks.ReportsCallback" />
 
         <variable
             name="formatter"
-            type="com.benfica.app.utils.TimeFormatter" />
+            type="com.mysqldatabase.app.utils.TimeFormatter" />
 
     </data>
 

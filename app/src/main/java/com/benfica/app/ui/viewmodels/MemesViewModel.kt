@@ -1,4 +1,4 @@
-package com.benfica.app.ui.viewmodels
+package com.mysqldatabase.app.ui.viewmodels
 
 import android.net.Uri
 import androidx.lifecycle.LiveData
@@ -7,21 +7,21 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
-import com.benfica.app.data.Result
-import com.benfica.app.data.Status
-import com.benfica.app.data.datasource.FavesDataSource
-import com.benfica.app.data.datasource.MemesDataSource
-import com.benfica.app.data.datasource.PendingMemesDataSource
-import com.benfica.app.data.models.Fave
-import com.benfica.app.data.models.Meme
-import com.benfica.app.data.models.PendingMeme
-import com.benfica.app.data.models.Report
-import com.benfica.app.data.repositories.MemesRepository
-import com.benfica.app.data.responses.GenericResponse
-import com.benfica.app.data.responses.MemesResponse
-import com.benfica.app.data.wrappers.ItemViewModel
-import com.benfica.app.data.wrappers.ObservableUser
-import com.benfica.app.ui.callbacks.VideoUrlCallback
+import com.mysqldatabase.app.data.Result
+import com.mysqldatabase.app.data.Status
+import com.mysqldatabase.app.data.datasource.FavesDataSource
+import com.mysqldatabase.app.data.datasource.MemesDataSource
+import com.mysqldatabase.app.data.datasource.PendingMemesDataSource
+import com.mysqldatabase.app.data.models.Fave
+import com.mysqldatabase.app.data.models.Meme
+import com.mysqldatabase.app.data.models.PendingMeme
+import com.mysqldatabase.app.data.models.Report
+import com.mysqldatabase.app.data.repositories.MemesRepository
+import com.mysqldatabase.app.data.responses.GenericResponse
+import com.mysqldatabase.app.data.responses.MemesResponse
+import com.mysqldatabase.app.data.wrappers.ItemViewModel
+import com.mysqldatabase.app.data.wrappers.ObservableUser
+import com.mysqldatabase.app.ui.callbacks.VideoUrlCallback
 import kotlinx.coroutines.launch
 
 class MemesViewModel constructor(private val repository: MemesRepository) : ViewModel() {

@@ -1,6 +1,6 @@
-package com.benfica.app.data.responses
+package com.mysqldatabase.app.data.responses
 
-import com.benfica.app.data.Status
+import com.mysqldatabase.app.data.Status
 import com.google.firebase.auth.FirebaseUser
 
 data class FirebaseUserResponse (

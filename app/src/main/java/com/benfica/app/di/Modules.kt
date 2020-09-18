@@ -1,9 +1,9 @@
-package com.benfica.app.di
+package com.mysqldatabase.app.di
 
-import com.benfica.app.R
-import com.benfica.app.data.repositories.*
-import com.benfica.app.ui.viewmodels.*
-import com.benfica.app.utils.SessionManager
+import com.mysqldatabase.app.R
+import com.mysqldatabase.app.data.repositories.*
+import com.mysqldatabase.app.ui.viewmodels.*
+import com.mysqldatabase.app.utils.SessionManager
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase

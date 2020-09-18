@@ -1,4 +1,4 @@
-package com.benfica.app.data.models
+package com.mysqldatabase.app.data.models
 
 data class Report(
         var id: String? = null,
