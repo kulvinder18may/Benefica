@@ -82,8 +82,9 @@ open class BaseActivity : AppCompatActivity() {
     fun getThumbnail(uri: Uri): String {
         val filePathColumn = arrayOf(MediaStore.Video.Media.DATA)
         val cursor =  contentResolver.query(uri, filePathColumn, null, null, null)
+        if(cursor==null)
+            return "not found"
         cursor!!.moveToFirst()
-
         val columnIndex = cursor.getColumnIndex(MediaStore.Video.Thumbnails.DATA)
         val picturePath = cursor.getString(columnIndex)
         cursor.close()

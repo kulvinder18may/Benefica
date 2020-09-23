@@ -98,7 +98,7 @@
                         android:inputType="textMultiLine"
                         android:lines="1"
                         android:padding="10dp"
-                        android:maxLength="32"
+                        android:maxLength="8"
                         android:textColor="@color/color_text_primary"
                         android:textColorHint="@color/color_text_secondary"
                         android:textSize="15sp" />

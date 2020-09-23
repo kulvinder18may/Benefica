@@ -1,11 +1,11 @@
 package com.mysqldatabase.app.ui.activities
 
 import android.app.Activity
-import android.content.DialogInterface
 import android.content.Intent
 import android.database.Cursor
 import android.net.Uri
 import android.os.Build
+import android.os.Build.VERSION_CODES
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.Menu
@@ -13,8 +13,11 @@ import android.view.MenuItem
 import android.view.MotionEvent
 import android.view.View
 import androidx.annotation.RequiresApi
+import androidx.core.content.ContextCompat
+import androidx.core.content.FileProvider
 import androidx.lifecycle.Observer
 import com.benfica.app.utils.MaskWatcher
+import com.benfica.app.utils.RealStoragePathLibrary
 import com.bumptech.glide.Glide
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.mikepenz.ionicons_typeface_library.Ionicons
@@ -31,9 +34,12 @@ import org.jetbrains.anko.longToast
 import org.jetbrains.anko.toast
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
+import java.io.File
 
 
 class PostMemeActivity : BaseActivity() {
+    private var mediaFile: File? = null
+    private var cameraClickFile: File? = null
     private var imageUri: Uri? = null
     private var imageSelected = false
     private var uploadMeme: MenuItem? = null
@@ -42,6 +48,8 @@ class PostMemeActivity : BaseActivity() {
 
     companion object {
         private const val GALLERY_REQUEST = 125
+        private const val CAMERA_PHOTO_REQUEST = 126
+        private const val CAMERA_VIDEO_REQUEST = 127
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -61,7 +69,7 @@ class PostMemeActivity : BaseActivity() {
             setDisplayHomeAsUpEnabled(true)
             title = null
         }
-        postTag.addTextChangedListener(MaskWatcher("##-##-##-##-##-##-##-##-##-##-##-##-##-##-##-##-##-##-##-##-##-##"))
+        postTag.addTextChangedListener(MaskWatcher("##-##-##"))
         postCaption.setOnTouchListener(object : View.OnTouchListener {
             override fun onTouch(v: View?, event: MotionEvent?): Boolean {
                 if (postCaption.hasFocus()) {
@@ -83,14 +91,35 @@ class PostMemeActivity : BaseActivity() {
                 if (granted) {
                     AppUtils.requestStorageReadPermission(this) { gant ->
                         if (gant) {
-                            val photoPickerIntent = Intent(Intent.ACTION_PICK)
-                            photoPickerIntent.type = "image/* video/*"
-                            startActivityForResult(photoPickerIntent, GALLERY_REQUEST)
+                            MaterialAlertDialogBuilder(this, R.style.ALertTheme)
+
+                                    .setMessage("Choose meme")
+                                    .setPositiveButton("Gallery") { p0, p1 ->
+                                        val photoPickerIntent = Intent(Intent.ACTION_PICK)
+                                        photoPickerIntent.type = "image/* video/*"
+                                        startActivityForResult(photoPickerIntent, GALLERY_REQUEST)
+                                    }
+                                    .setNegativeButton("Camera") { p0, p1 -> pickCamera() }
+                                    .show();
+
+
                         } else longToast("Storage permission is required to select Avatar")
                     }
                 }
             }
         }
+    }
+
+    fun pickCamera() {
+
+        MaterialAlertDialogBuilder(this, R.style.ALertTheme)
+
+                .setMessage("What you want to capture?")
+                .setPositiveButton("Photo") { p0, p1 ->
+                    takePicture()
+                }
+                .setNegativeButton("Video") { p0, p1 -> captureVideo() }
+                .show();
     }
 
     /**
@@ -222,8 +251,37 @@ class PostMemeActivity : BaseActivity() {
             }
 
         }
+        var oriFile: File? = null
+        if (requestCode == CAMERA_PHOTO_REQUEST) {
+            if (cameraClickFile == null) {
+                cameraClickFile = File(getSdCardPath().toString() + "/temp.jpg")
+            }
+            oriFile = cameraClickFile
 
 
+            startCropActivity(Uri.fromFile(oriFile))
+
+
+        }
+        if (requestCode == CAMERA_VIDEO_REQUEST) {
+            if (resultCode == RESULT_OK) {
+                isVideo = true
+                imageSelected = true
+
+                postSelectVideo.visibility = View.VISIBLE
+                postAddImage.visibility = View.GONE
+                // if (mediaFile == null) {
+                mediaFile = File(getSdCardPath().toString() + "/myvideo.mp4")
+                // }
+                imageUri = Uri.fromFile(mediaFile)!!
+
+                postSelectVideo.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_video))
+                toast("Video selected! preview not available")
+                /*  Glide.with(this).load("file://${getThumbnail(Uri.fromFile(mediaFile)!!)}")
+                          .skipMemoryCache(false)
+                          .into(postSelectVideo);*/
+            }
+        }
         if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
             val result = CropImage.getActivityResult(data)
             if (resultCode == Activity.RESULT_OK) {
@@ -307,4 +365,48 @@ class PostMemeActivity : BaseActivity() {
         return uri.path
     }
 
+    private fun takePicture() {
+        val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        cameraClickFile = File(getSdCardPath().toString() + "/temp.jpg")
+        if (Build.VERSION.SDK_INT >= VERSION_CODES.N) {
+            val apkURI = FileProvider.getUriForFile(
+                    this, this.getPackageName().toString() + ".provider", cameraClickFile!!)
+            intent.putExtra(MediaStore.EXTRA_OUTPUT, apkURI)
+        } else intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(cameraClickFile))
+        startActivityForResult(intent, CAMERA_PHOTO_REQUEST)
+    }
+
+    private fun getSdCardPath(): String? {
+        var path: String? = null
+        val realStoragePath = RealStoragePathLibrary(this)
+        val inbuiltStoragePath: String? = realStoragePath.getInbuiltStorageAppSpecificDirectoryPath()
+        val microSDStoragePath: String? = realStoragePath.getMicroSDStorageAppSpecificDirectoryPath()
+        path = if (microSDStoragePath != null && microSDStoragePath.length > 0) {
+            microSDStoragePath
+        } else {
+            inbuiltStoragePath
+        }
+        return path
+    }
+
+    private fun captureVideo() {
+        mediaFile = File(getSdCardPath().toString() + "/myvideo.mp4")
+        val intent = Intent(MediaStore.ACTION_VIDEO_CAPTURE)
+        if (Build.VERSION.SDK_INT >= VERSION_CODES.N) {
+            val apkURI = FileProvider.getUriForFile(
+                    this, this.getPackageName().toString() + ".provider", mediaFile!!)
+            intent.putExtra(MediaStore.EXTRA_OUTPUT, apkURI)
+        } else
+            intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(mediaFile))
+        startActivityForResult(intent, CAMERA_VIDEO_REQUEST)
+
+
+    }
+
+
+    /*        if (Build.VERSION.SDK_INT >= VERSION_CODES.N) {
+            val apkURI = FileProvider.getUriForFile(
+                    this, this.getPackageName().toString() + ".provider", cameraClickFile!!)
+            intent.putExtra(MediaStore.EXTRA_OUTPUT, apkURI)
+        } else intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(cameraClickFile))*/
 }
