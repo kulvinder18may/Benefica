@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.fragments.LoginFragment"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    tools:context=".ui.fragments.LoginFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:orientation="vertical"
         android:paddingStart="25dp"
-        android:paddingEnd="25dp"
         android:paddingTop="20dp"
-        android:paddingBottom="20dp"
-        android:gravity="center_horizontal">
+        android:paddingEnd="25dp"
+        android:paddingBottom="20dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -31,16 +31,16 @@
                 android:layout_height="100dp"
                 android:layout_marginTop="50dp"
                 android:contentDescription="@string/content_image"
-                android:src="@mipmap/ic_launcher"/>
+                android:src="@mipmap/ic_launcher" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:textSize="25sp"
                 android:text="@string/app_name"
                 android:textColor="@color/color_text_primary"
-                android:textStyle="bold"/>
+                android:textSize="25sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -52,54 +52,55 @@
 
             <EditText
                 android:id="@+id/loginEmail"
+                style="@style/AuthEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_email"
-                style="@style/AuthEditText"
-                android:inputType="textEmailAddress"
-                android:importantForAutofill="no" />
+                android:importantForAutofill="no"
+                android:inputType="textEmailAddress" />
 
             <EditText
                 android:id="@+id/loginPassword"
+                style="@style/AuthEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:hint="@string/hint_password"
-                style="@style/AuthEditText"
-                android:inputType="textPassword"
-                android:importantForAutofill="no" />
+                android:importantForAutofill="no"
+                android:inputType="textPassword" />
 
             <TextView
                 android:id="@+id/loginForgotPassword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/label_forgot_password"
-                android:textSize="13sp"
+                android:layout_gravity="end"
                 android:layout_marginTop="10dp"
-                android:layout_gravity="end"/>
+                android:text="@string/label_forgot_password"
+                android:textSize="13sp" />
 
             <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
                 android:id="@+id/loginButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/button_solid"
                 android:text="@string/button_login"
                 android:textColor="@android:color/white"
                 app:spinning_bar_color="@android:color/white"
-                app:spinning_bar_width="4dp"
                 app:spinning_bar_padding="2dp"
-                android:layout_gravity="center_horizontal"/>
+                app:spinning_bar_width="4dp" />
 
             <com.google.android.gms.common.SignInButton
                 android:id="@+id/googleLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:layout_marginTop="10dp"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginStart="0dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="0dp"
-                android:layout_gravity="center_horizontal"/>
+                android:padding="5dp"
+                android:visibility="gone" />
 
         </LinearLayout>
 
@@ -107,26 +108,26 @@
             android:id="@+id/loginRegisterLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="5dp"
             android:layout_marginTop="10dp"
-            android:gravity="center_vertical">
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="5dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
                 android:text="@string/label_not_member"
-                android:textSize="15sp"
-                android:layout_marginEnd="5dp"/>
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/loginRegister"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/label_register"
-                android:textStyle="bold"
+                android:textColor="@color/color_secondary"
                 android:textSize="15sp"
-                android:textColor="@color/color_secondary"/>
+                android:textStyle="bold" />
 
         </LinearLayout>
 

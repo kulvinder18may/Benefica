@@ -36,6 +36,7 @@ import com.mysqldatabase.app.ui.viewmodels.MemesViewModel
 import com.mysqldatabase.app.utils.*
 import com.cocosw.bottomsheet.BottomSheet
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.mysqldatabase.app.ui.base.BaseActivity
 import kotlinx.android.synthetic.main.fragment_home.*
 import org.greenrobot.eventbus.EventBus
 import org.jetbrains.anko.alert
@@ -187,6 +188,7 @@ class HomeFragment : BaseFragment() {
                     playVideo(meme)
                 }
                 else -> {
+                    (activity as BaseActivity).showLoading("")
                     doAsync {
                         // Get bitmap of shown meme
                         val imageBitmap = when (view.id) {
@@ -195,6 +197,7 @@ class HomeFragment : BaseFragment() {
                         }
 
                         uiThread {
+                            (activity as BaseActivity).hideLoading()
                             imageBitmap?.let {
                                 if (view.id == R.id.memeMore) showBottomSheet(meme, imageBitmap)
                                 else showMeme(meme, imageBitmap)

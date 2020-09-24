@@ -32,7 +32,7 @@ import org.jetbrains.anko.toast
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import timber.log.Timber
-
+/*62:6e:36:36:ae:fd:f1:57:dc:5a:72:8a:58:7b:5c:8f:29:b1:36:f5*/
 
 class LoginFragment : BaseFragment() {
     private var isLoggingIn = false
@@ -65,11 +65,11 @@ class LoginFragment : BaseFragment() {
 
         initLoginObserver()
         initUserObserver()
-        initGoogleLoginObserver()
+       // initGoogleLoginObserver()
         initPasswordResetObserver()
 
         loginButton.setOnClickListener { login() }
-        googleLogin.setOnClickListener { loginWithGoogle() }
+       // googleLogin.setOnClickListener { loginWithGoogle() }
         loginForgotPassword.setOnClickListener { if (!isLoggingIn) forgotPassword() else activity!!.toast("Please wait...")}
     }
 
