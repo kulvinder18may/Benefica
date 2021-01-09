@@ -1,7 +1,7 @@
-package com.mysqldatabase.app.ui.callbacks
+package com.panchayat.takoli.ui.callbacks
 
 import android.view.View
-import com.mysqldatabase.app.data.models.Notification
+import com.panchayat.takoli.data.models.Notification
 
 interface NotificationsCallback {
     fun onNotificationClicked(view: View, notification: Notification)

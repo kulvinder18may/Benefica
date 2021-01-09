@@ -1,4 +1,4 @@
-package com.mysqldatabase.app.ui.viewmodels
+package com.panchayat.takoli.ui.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -6,9 +6,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
-import com.mysqldatabase.app.data.datasource.NotificationsDataSource
-import com.mysqldatabase.app.data.models.Notification
-import com.mysqldatabase.app.data.repositories.NotificationsRepository
+import com.panchayat.takoli.data.datasource.NotificationsDataSource
+import com.panchayat.takoli.data.models.Notification
+import com.panchayat.takoli.data.repositories.NotificationsRepository
 
 class NotificationsViewModel constructor(private val repository: NotificationsRepository): ViewModel() {
     private var _notificationsLiveData: LiveData<PagedList<Notification>>

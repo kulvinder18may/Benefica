@@ -1,4 +1,4 @@
-package com.mysqldatabase.app.ui.activities
+package com.panchayat.takoli.ui.activities
 
 import android.content.ContentResolver
 import android.content.Intent
@@ -13,18 +13,18 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.mysqldatabase.app.R
-import com.mysqldatabase.app.data.Status
-import com.mysqldatabase.app.ui.adapters.CommentAdapter
-import com.mysqldatabase.app.ui.base.BaseActivity
-import com.mysqldatabase.app.data.models.Comment
-import com.mysqldatabase.app.data.responses.GenericResponse
-import com.mysqldatabase.app.databinding.ActivityCommentBinding
-import com.mysqldatabase.app.ui.callbacks.CommentsCallback
-import com.mysqldatabase.app.ui.callbacks.EditTextCallback
-import com.mysqldatabase.app.ui.callbacks.EditTextListener
-import com.mysqldatabase.app.ui.viewmodels.CommentsViewModel
-import com.mysqldatabase.app.utils.*
+import com.panchayat.takoli.R
+import com.panchayat.takoli.data.Status
+import com.panchayat.takoli.ui.adapters.CommentAdapter
+import com.panchayat.takoli.ui.base.BaseActivity
+import com.panchayat.takoli.data.models.Comment
+import com.panchayat.takoli.data.responses.GenericResponse
+import com.panchayat.takoli.databinding.ActivityCommentBinding
+import com.panchayat.takoli.ui.callbacks.CommentsCallback
+import com.panchayat.takoli.ui.callbacks.EditTextCallback
+import com.panchayat.takoli.ui.callbacks.EditTextListener
+import com.panchayat.takoli.ui.viewmodels.CommentsViewModel
+import com.panchayat.takoli.utils.*
 import com.mikepenz.fontawesome_typeface_library.FontAwesome
 import com.mikepenz.iconics.IconicsDrawable
 import kotlinx.android.synthetic.main.activity_comment.*

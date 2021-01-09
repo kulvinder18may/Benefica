@@ -12,7 +12,7 @@
             android:id="@+id/searchV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:defaultQueryHint="Search tags or city"
+            app:defaultQueryHint="Search ward/panchayat/candidate etc"
             app:iconifiedByDefault="false"
             />
 

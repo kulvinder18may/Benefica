@@ -1,11 +1,11 @@
-package com.mysqldatabase.app.data.datasource
+package com.panchayat.takoli.data.datasource
 
 import androidx.paging.DataSource
 import androidx.paging.ItemKeyedDataSource
-import com.mysqldatabase.app.data.Status
-import com.mysqldatabase.app.data.repositories.MemesRepository
-import com.mysqldatabase.app.data.wrappers.ItemViewModel
-import com.mysqldatabase.app.data.wrappers.ObservableUser
+import com.panchayat.takoli.data.Status
+import com.panchayat.takoli.data.repositories.MemesRepository
+import com.panchayat.takoli.data.wrappers.ItemViewModel
+import com.panchayat.takoli.data.wrappers.ObservableUser
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import timber.log.Timber

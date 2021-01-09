@@ -1,7 +1,7 @@
-package com.mysqldatabase.app.data.responses
+package com.panchayat.takoli.data.responses
 
-import com.mysqldatabase.app.data.Status
-import com.mysqldatabase.app.data.wrappers.ObservableMeme
+import com.panchayat.takoli.data.Status
+import com.panchayat.takoli.data.wrappers.ObservableMeme
 
 data class MemesResponse(
         val status: Status,

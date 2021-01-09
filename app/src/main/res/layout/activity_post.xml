@@ -49,7 +49,6 @@
                     android:id="@+id/postCaption"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/color_primary"
                     android:gravity="top"
                     android:hint="@string/hint_caption"
                     android:importantForAutofill="no"
@@ -59,8 +58,11 @@
                     android:padding="20dp"
                     android:scrollbarStyle="insideInset"
                     android:scrollbars="vertical"
+                    android:background="@drawable/white_box"
                     android:textColor="@color/color_text_primary"
                     android:textColorHint="@color/color_text_secondary"
+                    android:layout_margin="10dp"
+                    android:maxLength="1000"
                     android:textSize="15sp" />
 
                 <LinearLayout
@@ -68,6 +70,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
                     android:weightSum="2">
 
                     <EditText
@@ -77,13 +81,15 @@
                         android:layout_margin="1dp"
                         android:layout_weight="1"
                         android:background="@drawable/white_box"
-                        android:hint="@string/hint_city"
+                        android:hint="Ward/Panchayat"
                         android:importantForAutofill="no"
                         android:inputType="textMultiLine"
                         android:lines="1"
                         android:padding="10dp"
+                        android:layout_marginEnd="4dp"
                         android:textColor="@color/color_text_primary"
                         android:textColorHint="@color/color_text_secondary"
+                        android:maxLength="250"
                         android:textSize="15sp" />
 
                     <EditText
@@ -98,7 +104,8 @@
                         android:inputType="textMultiLine"
                         android:lines="1"
                         android:padding="10dp"
-                        android:maxLength="8"
+                        android:layout_marginStart="4dp"
+                        android:maxLength="500"
                         android:textColor="@color/color_text_primary"
                         android:textColorHint="@color/color_text_secondary"
                         android:textSize="15sp" />

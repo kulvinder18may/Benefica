@@ -1,6 +1,6 @@
-package com.mysqldatabase.app.data.wrappers
+package com.panchayat.takoli.data.wrappers
 
-import com.mysqldatabase.app.data.models.Comment
+import com.panchayat.takoli.data.models.Comment
 import io.reactivex.Observable
 
 data class ObservableComment(

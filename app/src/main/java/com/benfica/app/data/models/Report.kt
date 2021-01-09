@@ -1,4 +1,4 @@
-package com.mysqldatabase.app.data.models
+package com.panchayat.takoli.data.models
 
 data class Report(
         var id: String? = null,

@@ -1,7 +1,7 @@
-package com.mysqldatabase.app.data.repositories
+package com.panchayat.takoli.data.repositories
 
-import com.mysqldatabase.app.data.models.Report
-import com.mysqldatabase.app.utils.Constants
+import com.panchayat.takoli.data.models.Report
+import com.panchayat.takoli.utils.Constants
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import kotlinx.coroutines.tasks.await

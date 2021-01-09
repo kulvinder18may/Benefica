@@ -1,10 +1,10 @@
-package com.mysqldatabase.app.data.datasource
+package com.panchayat.takoli.data.datasource
 
 import androidx.paging.DataSource
 import androidx.paging.ItemKeyedDataSource
-import com.mysqldatabase.app.data.repositories.CommentsRepository
-import com.mysqldatabase.app.data.wrappers.ItemViewModel
-import com.mysqldatabase.app.data.wrappers.ObservableComment
+import com.panchayat.takoli.data.repositories.CommentsRepository
+import com.panchayat.takoli.data.wrappers.ItemViewModel
+import com.panchayat.takoli.data.wrappers.ObservableComment
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import timber.log.Timber

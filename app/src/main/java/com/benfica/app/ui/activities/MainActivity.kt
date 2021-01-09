@@ -1,4 +1,4 @@
-package com.mysqldatabase.app.ui.activities
+package com.panchayat.takoli.ui.activities
 
 import am.appwise.components.ni.NoInternetDialog
 import android.content.ActivityNotFoundException
@@ -14,15 +14,15 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.viewpager.widget.ViewPager
-import com.mysqldatabase.app.DankMemes
-import com.mysqldatabase.app.R
-import com.mysqldatabase.app.data.Status
-import com.mysqldatabase.app.data.events.ScrollingEvent
-import com.mysqldatabase.app.ui.base.BaseActivity
-import com.mysqldatabase.app.ui.fragments.*
-import com.mysqldatabase.app.ui.viewmodels.UsersViewModel
-import com.mysqldatabase.app.utils.*
-import com.mysqldatabase.app.utils.AppUtils.getDrawable
+import com.panchayat.takoli.DankMemes
+import com.panchayat.takoli.R
+import com.panchayat.takoli.data.Status
+import com.panchayat.takoli.data.events.ScrollingEvent
+import com.panchayat.takoli.ui.base.BaseActivity
+import com.panchayat.takoli.ui.fragments.*
+import com.panchayat.takoli.ui.viewmodels.UsersViewModel
+import com.panchayat.takoli.utils.*
+import com.panchayat.takoli.utils.AppUtils.getDrawable
 import com.gelostech.pageradapter.PagerAdapter
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.messaging.FirebaseMessaging

@@ -1,4 +1,4 @@
-package com.mysqldatabase.app.utils
+package com.panchayat.takoli.utils
 
 class MyBounceInterpolator(amplitude: Double, frequency: Double) : android.view.animation.Interpolator {
     private var mAmplitude = 1.0

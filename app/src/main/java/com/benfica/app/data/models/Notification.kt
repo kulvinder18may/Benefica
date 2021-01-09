@@ -1,4 +1,4 @@
-package com.mysqldatabase.app.data.models
+package com.panchayat.takoli.data.models
 
 data class Notification(
         var type: Int? = null,

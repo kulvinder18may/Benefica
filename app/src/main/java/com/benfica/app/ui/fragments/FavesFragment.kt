@@ -1,4 +1,4 @@
-package com.mysqldatabase.app.ui.fragments
+package com.panchayat.takoli.ui.fragments
 
 
 import android.content.DialogInterface
@@ -11,18 +11,18 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
-import com.mysqldatabase.app.R
-import com.mysqldatabase.app.data.Status
-import com.mysqldatabase.app.data.events.PostMemeEvent
-import com.mysqldatabase.app.data.models.Fave
-import com.mysqldatabase.app.databinding.FragmentFavesBinding
-import com.mysqldatabase.app.ui.activities.VideoPlayActivity
-import com.mysqldatabase.app.ui.activities.ViewMemeActivity
-import com.mysqldatabase.app.ui.adapters.FavesAdapter
-import com.mysqldatabase.app.ui.base.BaseFragment
-import com.mysqldatabase.app.ui.callbacks.FavesCallback
-import com.mysqldatabase.app.ui.viewmodels.MemesViewModel
-import com.mysqldatabase.app.utils.*
+import com.panchayat.takoli.R
+import com.panchayat.takoli.data.Status
+import com.panchayat.takoli.data.events.PostMemeEvent
+import com.panchayat.takoli.data.models.Fave
+import com.panchayat.takoli.databinding.FragmentFavesBinding
+import com.panchayat.takoli.ui.activities.VideoPlayActivity
+import com.panchayat.takoli.ui.activities.ViewMemeActivity
+import com.panchayat.takoli.ui.adapters.FavesAdapter
+import com.panchayat.takoli.ui.base.BaseFragment
+import com.panchayat.takoli.ui.callbacks.FavesCallback
+import com.panchayat.takoli.ui.viewmodels.MemesViewModel
+import com.panchayat.takoli.utils.*
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.makeramen.roundedimageview.RoundedDrawable
 import com.makeramen.roundedimageview.RoundedImageView

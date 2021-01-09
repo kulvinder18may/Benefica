@@ -1,11 +1,11 @@
-package com.mysqldatabase.app.ui.activities
+package com.panchayat.takoli.ui.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.mysqldatabase.app.R
-import com.mysqldatabase.app.utils.AppUtils
-import com.mysqldatabase.app.utils.SessionManager
+import com.panchayat.takoli.R
+import com.panchayat.takoli.utils.AppUtils
+import com.panchayat.takoli.utils.SessionManager
 import org.koin.android.ext.android.inject
 
 class SplashActivity : AppCompatActivity() {

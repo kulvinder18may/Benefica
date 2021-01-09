@@ -1,6 +1,6 @@
-package com.mysqldatabase.app.data.wrappers
+package com.panchayat.takoli.data.wrappers
 
-import com.mysqldatabase.app.data.models.Meme
+import com.panchayat.takoli.data.models.Meme
 import io.reactivex.Observable
 
 data class ObservableMeme(

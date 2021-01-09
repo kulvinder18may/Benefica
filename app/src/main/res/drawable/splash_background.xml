@@ -3,9 +3,11 @@
     <item android:drawable="@color/color_primary"/>
 
     <item
+
         android:left="20dp"
         android:right="20dp">
         <bitmap
+
             android:gravity="center"
             android:src="@drawable/splash_icon"/>
     </item>

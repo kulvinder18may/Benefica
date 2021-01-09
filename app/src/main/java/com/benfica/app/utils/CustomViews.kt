@@ -1,11 +1,11 @@
-package com.mysqldatabase.app.utils
+package com.panchayat.takoli.utils
 
 import android.content.Context
 import android.content.res.TypedArray
 import android.util.AttributeSet
 import android.view.View
 import android.widget.RelativeLayout
-import com.mysqldatabase.app.R
+import com.panchayat.takoli.R
 import java.lang.reflect.InvocationTargetException
 import java.lang.reflect.Method
 

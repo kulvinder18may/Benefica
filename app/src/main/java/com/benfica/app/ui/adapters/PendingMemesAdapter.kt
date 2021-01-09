@@ -1,16 +1,16 @@
-package com.mysqldatabase.app.ui.adapters
+package com.panchayat.takoli.ui.adapters
 
 import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.mysqldatabase.app.R
-import com.mysqldatabase.app.data.models.PendingMeme
-import com.mysqldatabase.app.databinding.ItemPendingMemeBinding
-import com.mysqldatabase.app.ui.callbacks.PendingMemesCallback
-import com.mysqldatabase.app.utils.AppUtils
-import com.mysqldatabase.app.utils.inflate
-import com.mysqldatabase.app.utils.setDrawable
+import com.panchayat.takoli.R
+import com.panchayat.takoli.data.models.PendingMeme
+import com.panchayat.takoli.databinding.ItemPendingMemeBinding
+import com.panchayat.takoli.ui.callbacks.PendingMemesCallback
+import com.panchayat.takoli.utils.AppUtils
+import com.panchayat.takoli.utils.inflate
+import com.panchayat.takoli.utils.setDrawable
 import com.mikepenz.ionicons_typeface_library.Ionicons
 
 class PendingMemesAdapter(private val callback: PendingMemesCallback): PagedListAdapter<PendingMeme,

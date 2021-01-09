@@ -6,18 +6,18 @@
 
     <data>
 
-        <import type="com.mysqldatabase.app.R" />
+        <import type="com.panchayat.takoli.R" />
 
         <variable
             name="meme"
-            type="com.mysqldatabase.app.data.models.Fave" />
+            type="com.panchayat.takoli.data.models.Fave" />
 
         <variable
             name="callback"
-            type="com.mysqldatabase.app.ui.callbacks.FavesCallback" />
+            type="com.panchayat.takoli.ui.callbacks.FavesCallback" />
         <variable
             name="timeFormatter"
-            type="com.mysqldatabase.app.utils.TimeFormatter" />
+            type="com.panchayat.takoli.utils.TimeFormatter" />
     </data>
 
     <LinearLayout
@@ -113,7 +113,7 @@
             android:layout_marginBottom="5dp"
             android:layout_marginLeft="5dp"
             android:textColor="@color/color_text_primary"/>
-        <com.mysqldatabase.app.utils.SquareLayout
+        <com.panchayat.takoli.utils.SquareLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <FrameLayout
@@ -150,7 +150,7 @@
 
                     android:src="@android:drawable/ic_media_play"/>
             </FrameLayout>
-        </com.mysqldatabase.app.utils.SquareLayout>
+        </com.panchayat.takoli.utils.SquareLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

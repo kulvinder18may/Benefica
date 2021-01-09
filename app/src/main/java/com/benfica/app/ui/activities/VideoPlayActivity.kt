@@ -1,11 +1,11 @@
-package com.mysqldatabase.app.ui.activities
+package com.panchayat.takoli.ui.activities
 
 import android.os.Bundle
 import androidx.lifecycle.Observer
-import com.mysqldatabase.app.R
-import com.mysqldatabase.app.ui.base.BaseActivity
-import com.mysqldatabase.app.ui.viewmodels.MemesViewModel
-import com.mysqldatabase.app.utils.Constants
+import com.panchayat.takoli.R
+import com.panchayat.takoli.ui.base.BaseActivity
+import com.panchayat.takoli.ui.viewmodels.MemesViewModel
+import com.panchayat.takoli.utils.Constants
 import kotlinx.android.synthetic.main.content_video_play.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

@@ -1,4 +1,4 @@
-package com.mysqldatabase.app.utils;
+package com.panchayat.takoli.utils;
 
 import android.content.Context
 import android.content.SharedPreferences

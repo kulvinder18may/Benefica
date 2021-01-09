@@ -1,6 +1,6 @@
-package com.mysqldatabase.app.data.responses
+package com.panchayat.takoli.data.responses
 
-import com.mysqldatabase.app.data.Status
+import com.panchayat.takoli.data.Status
 
 data class GenericResponse (
         val status: Status,

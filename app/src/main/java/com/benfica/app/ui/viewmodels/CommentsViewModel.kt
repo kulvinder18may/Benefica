@@ -1,4 +1,4 @@
-package com.mysqldatabase.app.ui.viewmodels
+package com.panchayat.takoli.ui.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -6,13 +6,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
-import com.mysqldatabase.app.data.Result
-import com.mysqldatabase.app.data.datasource.CommentsDataSource
-import com.mysqldatabase.app.data.models.Comment
-import com.mysqldatabase.app.data.repositories.CommentsRepository
-import com.mysqldatabase.app.data.responses.CommentsResponse
-import com.mysqldatabase.app.data.responses.GenericResponse
-import com.mysqldatabase.app.data.wrappers.ObservableComment
+import com.panchayat.takoli.data.Result
+import com.panchayat.takoli.data.datasource.CommentsDataSource
+import com.panchayat.takoli.data.models.Comment
+import com.panchayat.takoli.data.repositories.CommentsRepository
+import com.panchayat.takoli.data.responses.CommentsResponse
+import com.panchayat.takoli.data.responses.GenericResponse
+import com.panchayat.takoli.data.wrappers.ObservableComment
 import kotlinx.coroutines.launch
 
 class CommentsViewModel constructor(private val repository: CommentsRepository): ViewModel() {

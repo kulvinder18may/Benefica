@@ -6,11 +6,11 @@
     <data>
         <variable
             name="meme"
-            type="com.mysqldatabase.app.data.models.PendingMeme" />
+            type="com.panchayat.takoli.data.models.PendingMeme" />
 
         <variable
             name="callback"
-            type="com.mysqldatabase.app.ui.callbacks.PendingMemesCallback" />
+            type="com.panchayat.takoli.ui.callbacks.PendingMemesCallback" />
 
     </data>
 

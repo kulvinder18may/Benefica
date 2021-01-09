@@ -1,7 +1,7 @@
-package com.mysqldatabase.app.data.responses
+package com.panchayat.takoli.data.responses
 
-import com.mysqldatabase.app.data.Status
-import com.mysqldatabase.app.data.models.Comment
+import com.panchayat.takoli.data.Status
+import com.panchayat.takoli.data.models.Comment
 
 data class CommentsResponse(
         val status: Status,

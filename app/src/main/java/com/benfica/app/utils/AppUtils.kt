@@ -1,4 +1,4 @@
-package com.mysqldatabase.app.utils
+package com.panchayat.takoli.utils
 
 import android.Manifest
 import android.app.Activity
@@ -25,9 +25,9 @@ import android.view.animation.AnimationUtils
 import android.widget.EditText
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.mysqldatabase.app.R
-import com.mysqldatabase.app.data.events.ScrollingEvent
-import com.mysqldatabase.app.ui.callbacks.StorageUploadListener
+import com.panchayat.takoli.R
+import com.panchayat.takoli.data.events.ScrollingEvent
+import com.panchayat.takoli.ui.callbacks.StorageUploadListener
 import com.bumptech.glide.Glide
 import com.google.firebase.storage.StorageReference
 import com.karumi.dexter.Dexter

@@ -4,19 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="com.mysqldatabase.app.R"/>
+        <import type="com.panchayat.takoli.R"/>
 
         <variable
             name="comment"
-            type="com.mysqldatabase.app.data.models.Comment" />
+            type="com.panchayat.takoli.data.models.Comment" />
 
         <variable
             name="callback"
-            type="com.mysqldatabase.app.ui.callbacks.CommentsCallback" />
+            type="com.panchayat.takoli.ui.callbacks.CommentsCallback" />
 
         <variable
             name="timeFormatter"
-            type="com.mysqldatabase.app.utils.TimeFormatter" />
+            type="com.panchayat.takoli.utils.TimeFormatter" />
     </data>
 
     <RelativeLayout

@@ -1,4 +1,4 @@
-package com.mysqldatabase.app.ui.base
+package com.panchayat.takoli.ui.base
 
 import android.app.ProgressDialog
 import android.media.MediaMetadataRetriever
@@ -9,10 +9,10 @@ import android.provider.MediaStore
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import com.mysqldatabase.app.R
-import com.mysqldatabase.app.utils.Constants
-import com.mysqldatabase.app.utils.SessionManager
-import com.mysqldatabase.app.utils.TimeFormatter
+import com.panchayat.takoli.R
+import com.panchayat.takoli.utils.Constants
+import com.panchayat.takoli.utils.SessionManager
+import com.panchayat.takoli.utils.TimeFormatter
 import com.google.firebase.database.DatabaseReference
 import com.nostra13.universalimageloader.core.ImageLoader
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration

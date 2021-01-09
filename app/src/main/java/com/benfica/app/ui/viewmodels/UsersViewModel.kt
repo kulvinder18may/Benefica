@@ -1,13 +1,13 @@
-package com.mysqldatabase.app.ui.viewmodels
+package com.panchayat.takoli.ui.viewmodels
 
 import android.net.Uri
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mysqldatabase.app.data.Result
-import com.mysqldatabase.app.data.models.User
-import com.mysqldatabase.app.data.repositories.UsersRepository
-import com.mysqldatabase.app.data.responses.*
+import com.panchayat.takoli.data.Result
+import com.panchayat.takoli.data.models.User
+import com.panchayat.takoli.data.repositories.UsersRepository
+import com.panchayat.takoli.data.responses.*
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import kotlinx.coroutines.launch
 import timber.log.Timber

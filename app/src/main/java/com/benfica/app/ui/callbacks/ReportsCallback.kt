@@ -1,6 +1,6 @@
-package com.mysqldatabase.app.ui.callbacks
+package com.panchayat.takoli.ui.callbacks
 
-import com.mysqldatabase.app.data.models.Report
+import com.panchayat.takoli.data.models.Report
 
 interface ReportsCallback {
     fun onReportClicked(report: Report)

@@ -1,15 +1,15 @@
-package com.mysqldatabase.app.data.repositories
+package com.panchayat.takoli.data.repositories
 
 import android.net.Uri
-import com.mysqldatabase.app.data.Result
-import com.mysqldatabase.app.data.models.User
-import com.mysqldatabase.app.data.responses.GoogleLoginResponse
-import com.mysqldatabase.app.data.wrappers.ObservableUser
-import com.mysqldatabase.app.ui.callbacks.StorageUploadListener
-import com.mysqldatabase.app.utils.AppUtils
-import com.mysqldatabase.app.utils.Constants
-import com.mysqldatabase.app.utils.TimeFormatter
-import com.mysqldatabase.app.utils.get
+import com.panchayat.takoli.data.Result
+import com.panchayat.takoli.data.models.User
+import com.panchayat.takoli.data.responses.GoogleLoginResponse
+import com.panchayat.takoli.data.wrappers.ObservableUser
+import com.panchayat.takoli.ui.callbacks.StorageUploadListener
+import com.panchayat.takoli.utils.AppUtils
+import com.panchayat.takoli.utils.Constants
+import com.panchayat.takoli.utils.TimeFormatter
+import com.panchayat.takoli.utils.get
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.*

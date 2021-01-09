@@ -1,17 +1,17 @@
-package com.mysqldatabase.app.ui.activities
+package com.panchayat.takoli.ui.activities
 
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.view.View
-import com.mysqldatabase.app.R
-import com.mysqldatabase.app.ui.base.BaseActivity
-import com.mysqldatabase.app.utils.Constants
-import com.mysqldatabase.app.utils.load
+import com.panchayat.takoli.R
+import com.panchayat.takoli.ui.base.BaseActivity
+import com.panchayat.takoli.utils.Constants
+import com.panchayat.takoli.utils.load
 import kotlinx.android.synthetic.main.activity_view_meme.*
 import android.view.WindowManager
 import android.os.Build
 import androidx.core.content.ContextCompat
-import com.mysqldatabase.app.utils.AppUtils
+import com.panchayat.takoli.utils.AppUtils
 
 
 class ViewMemeActivity : BaseActivity() {

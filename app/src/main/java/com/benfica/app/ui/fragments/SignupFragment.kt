@@ -1,4 +1,4 @@
-package com.mysqldatabase.app.ui.fragments
+package com.panchayat.takoli.ui.fragments
 
 
 import android.app.Activity.RESULT_OK
@@ -10,13 +10,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import com.mysqldatabase.app.R
-import com.mysqldatabase.app.data.Status
-import com.mysqldatabase.app.data.models.User
-import com.mysqldatabase.app.ui.base.BaseFragment
-import com.mysqldatabase.app.ui.viewmodels.UsersViewModel
-import com.mysqldatabase.app.utils.*
-import com.mysqldatabase.app.utils.AppUtils.getDrawable
+import com.panchayat.takoli.R
+import com.panchayat.takoli.data.Status
+import com.panchayat.takoli.data.models.User
+import com.panchayat.takoli.ui.base.BaseFragment
+import com.panchayat.takoli.ui.viewmodels.UsersViewModel
+import com.panchayat.takoli.utils.*
+import com.panchayat.takoli.utils.AppUtils.getDrawable
 import com.google.firebase.iid.FirebaseInstanceId
 import com.mikepenz.ionicons_typeface_library.Ionicons
 import com.theartofdev.edmodo.cropper.CropImage

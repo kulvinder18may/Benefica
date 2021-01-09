@@ -1,10 +1,10 @@
-package com.mysqldatabase.app.data.datasource
+package com.panchayat.takoli.data.datasource
 
 import androidx.paging.DataSource
 import androidx.paging.ItemKeyedDataSource
-import com.mysqldatabase.app.data.models.Notification
-import com.mysqldatabase.app.data.repositories.NotificationsRepository
-import com.mysqldatabase.app.utils.SessionManager
+import com.panchayat.takoli.data.models.Notification
+import com.panchayat.takoli.data.repositories.NotificationsRepository
+import com.panchayat.takoli.utils.SessionManager
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import org.koin.core.KoinComponent

@@ -1,4 +1,4 @@
-package com.mysqldatabase.app.data.wrappers
+package com.panchayat.takoli.data.wrappers
 
 abstract interface ItemViewModel {
     val id: String

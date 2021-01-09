@@ -1,4 +1,4 @@
-package com.mysqldatabase.app.ui.fragments
+package com.panchayat.takoli.ui.fragments
 
 
 import android.content.DialogInterface
@@ -16,27 +16,27 @@ import androidx.lifecycle.Observer
 import androidx.paging.PagedList
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.mysqldatabase.app.R
-import com.mysqldatabase.app.data.Status
-import com.mysqldatabase.app.data.events.PostMemeEvent
-import com.mysqldatabase.app.data.models.Meme
-import com.mysqldatabase.app.data.models.Report
-import com.mysqldatabase.app.data.models.User
-import com.mysqldatabase.app.data.responses.GenericResponse
-import com.mysqldatabase.app.data.wrappers.ItemViewModel
-import com.mysqldatabase.app.databinding.FragmentHomeBinding
-import com.mysqldatabase.app.ui.activities.CommentActivity
-import com.mysqldatabase.app.ui.activities.ProfileActivity
-import com.mysqldatabase.app.ui.activities.VideoPlayActivity
-import com.mysqldatabase.app.ui.activities.ViewMemeActivity
-import com.mysqldatabase.app.ui.adapters.MemesAdapter
-import com.mysqldatabase.app.ui.base.BaseFragment
-import com.mysqldatabase.app.ui.callbacks.MemesCallback
-import com.mysqldatabase.app.ui.viewmodels.MemesViewModel
-import com.mysqldatabase.app.utils.*
+import com.panchayat.takoli.R
+import com.panchayat.takoli.data.Status
+import com.panchayat.takoli.data.events.PostMemeEvent
+import com.panchayat.takoli.data.models.Meme
+import com.panchayat.takoli.data.models.Report
+import com.panchayat.takoli.data.models.User
+import com.panchayat.takoli.data.responses.GenericResponse
+import com.panchayat.takoli.data.wrappers.ItemViewModel
+import com.panchayat.takoli.databinding.FragmentHomeBinding
+import com.panchayat.takoli.ui.activities.CommentActivity
+import com.panchayat.takoli.ui.activities.ProfileActivity
+import com.panchayat.takoli.ui.activities.VideoPlayActivity
+import com.panchayat.takoli.ui.activities.ViewMemeActivity
+import com.panchayat.takoli.ui.adapters.MemesAdapter
+import com.panchayat.takoli.ui.base.BaseFragment
+import com.panchayat.takoli.ui.callbacks.MemesCallback
+import com.panchayat.takoli.ui.viewmodels.MemesViewModel
+import com.panchayat.takoli.utils.*
 import com.cocosw.bottomsheet.BottomSheet
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.mysqldatabase.app.ui.base.BaseActivity
+import com.panchayat.takoli.ui.base.BaseActivity
 import kotlinx.android.synthetic.main.fragment_home.*
 import org.greenrobot.eventbus.EventBus
 import org.jetbrains.anko.alert
@@ -153,8 +153,8 @@ class HomeFragment : BaseFragment() {
 
                 Status.SUCCESS -> {
                     when (it.item) {
-                        GenericResponse.ITEM_RESPONSE.DELETE_MEME -> toast("Meme deleted \uD83D\uDEAE️")
-                        GenericResponse.ITEM_RESPONSE.REPORT_MEME -> toast("Meme reported \uD83D\uDC4A")
+                        GenericResponse.ITEM_RESPONSE.DELETE_MEME -> toast("View deleted \uD83D\uDEAE️")
+                        GenericResponse.ITEM_RESPONSE.REPORT_MEME -> toast("View reported \uD83D\uDC4A")
                         GenericResponse.ITEM_RESPONSE.FAVE_MEME -> EventBus.getDefault().post(PostMemeEvent(PostMemeEvent.TYPE.FAVORITE))
                         else -> Timber.e("Success \uD83D\uDE03")
                     }

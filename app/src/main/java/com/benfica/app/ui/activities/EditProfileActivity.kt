@@ -1,4 +1,4 @@
-package com.mysqldatabase.app.ui.activities
+package com.panchayat.takoli.ui.activities
 
 import android.app.Activity
 import android.content.Intent
@@ -7,15 +7,15 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.view.MenuItem
 import androidx.lifecycle.Observer
-import com.mysqldatabase.app.R
-import com.mysqldatabase.app.data.Status
-import com.mysqldatabase.app.data.responses.GenericResponse
-import com.mysqldatabase.app.ui.base.BaseActivity
-import com.mysqldatabase.app.ui.viewmodels.UsersViewModel
-import com.mysqldatabase.app.utils.AppUtils
-import com.mysqldatabase.app.utils.Constants
-import com.mysqldatabase.app.utils.TimeFormatter
-import com.mysqldatabase.app.utils.load
+import com.panchayat.takoli.R
+import com.panchayat.takoli.data.Status
+import com.panchayat.takoli.data.responses.GenericResponse
+import com.panchayat.takoli.ui.base.BaseActivity
+import com.panchayat.takoli.ui.viewmodels.UsersViewModel
+import com.panchayat.takoli.utils.AppUtils
+import com.panchayat.takoli.utils.Constants
+import com.panchayat.takoli.utils.TimeFormatter
+import com.panchayat.takoli.utils.load
 import com.mikepenz.ionicons_typeface_library.Ionicons
 import com.theartofdev.edmodo.cropper.CropImage
 import com.theartofdev.edmodo.cropper.CropImageView

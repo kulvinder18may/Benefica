@@ -3,19 +3,19 @@
     xmlns:bind="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <import type="com.mysqldatabase.app.R"/>
+        <import type="com.panchayat.takoli.R"/>
 
         <variable
             name="notification"
-            type="com.mysqldatabase.app.data.models.Notification" />
+            type="com.panchayat.takoli.data.models.Notification" />
 
         <variable
             name="callback"
-            type="com.mysqldatabase.app.ui.callbacks.NotificationsCallback" />
+            type="com.panchayat.takoli.ui.callbacks.NotificationsCallback" />
 
         <variable
             name="timeFormatter"
-            type="com.mysqldatabase.app.utils.TimeFormatter" />
+            type="com.panchayat.takoli.utils.TimeFormatter" />
     </data>
 
     <RelativeLayout

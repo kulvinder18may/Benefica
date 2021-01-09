@@ -1,4 +1,4 @@
-package com.mysqldatabase.app.ui.viewmodels
+package com.panchayat.takoli.ui.viewmodels
 
 import android.net.Uri
 import androidx.lifecycle.LiveData
@@ -7,21 +7,21 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
-import com.mysqldatabase.app.data.Result
-import com.mysqldatabase.app.data.Status
-import com.mysqldatabase.app.data.datasource.FavesDataSource
-import com.mysqldatabase.app.data.datasource.MemesDataSource
-import com.mysqldatabase.app.data.datasource.PendingMemesDataSource
-import com.mysqldatabase.app.data.models.Fave
-import com.mysqldatabase.app.data.models.Meme
-import com.mysqldatabase.app.data.models.PendingMeme
-import com.mysqldatabase.app.data.models.Report
-import com.mysqldatabase.app.data.repositories.MemesRepository
-import com.mysqldatabase.app.data.responses.GenericResponse
-import com.mysqldatabase.app.data.responses.MemesResponse
-import com.mysqldatabase.app.data.wrappers.ItemViewModel
-import com.mysqldatabase.app.data.wrappers.ObservableUser
-import com.mysqldatabase.app.ui.callbacks.VideoUrlCallback
+import com.panchayat.takoli.data.Result
+import com.panchayat.takoli.data.Status
+import com.panchayat.takoli.data.datasource.FavesDataSource
+import com.panchayat.takoli.data.datasource.MemesDataSource
+import com.panchayat.takoli.data.datasource.PendingMemesDataSource
+import com.panchayat.takoli.data.models.Fave
+import com.panchayat.takoli.data.models.Meme
+import com.panchayat.takoli.data.models.PendingMeme
+import com.panchayat.takoli.data.models.Report
+import com.panchayat.takoli.data.repositories.MemesRepository
+import com.panchayat.takoli.data.responses.GenericResponse
+import com.panchayat.takoli.data.responses.MemesResponse
+import com.panchayat.takoli.data.wrappers.ItemViewModel
+import com.panchayat.takoli.data.wrappers.ObservableUser
+import com.panchayat.takoli.ui.callbacks.VideoUrlCallback
 import kotlinx.coroutines.launch
 
 class MemesViewModel constructor(private val repository: MemesRepository) : ViewModel() {

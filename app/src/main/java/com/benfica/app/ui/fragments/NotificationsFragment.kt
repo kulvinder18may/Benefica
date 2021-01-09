@@ -1,4 +1,4 @@
-package com.mysqldatabase.app.ui.fragments
+package com.panchayat.takoli.ui.fragments
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,16 +8,16 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.mysqldatabase.app.R
-import com.mysqldatabase.app.ui.activities.ProfileActivity
-import com.mysqldatabase.app.ui.adapters.NotificationsAdapter
-import com.mysqldatabase.app.ui.callbacks.NotificationsCallback
-import com.mysqldatabase.app.ui.base.BaseFragment
-import com.mysqldatabase.app.data.models.Notification
-import com.mysqldatabase.app.databinding.FragmentNotificationsBinding
-import com.mysqldatabase.app.ui.activities.MemeActivity
-import com.mysqldatabase.app.ui.viewmodels.NotificationsViewModel
-import com.mysqldatabase.app.utils.*
+import com.panchayat.takoli.R
+import com.panchayat.takoli.ui.activities.ProfileActivity
+import com.panchayat.takoli.ui.adapters.NotificationsAdapter
+import com.panchayat.takoli.ui.callbacks.NotificationsCallback
+import com.panchayat.takoli.ui.base.BaseFragment
+import com.panchayat.takoli.data.models.Notification
+import com.panchayat.takoli.databinding.FragmentNotificationsBinding
+import com.panchayat.takoli.ui.activities.MemeActivity
+import com.panchayat.takoli.ui.viewmodels.NotificationsViewModel
+import com.panchayat.takoli.utils.*
 import kotlinx.android.synthetic.main.fragment_notifications.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

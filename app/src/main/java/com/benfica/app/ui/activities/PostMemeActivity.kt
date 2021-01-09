@@ -1,4 +1,4 @@
-package com.mysqldatabase.app.ui.activities
+package com.panchayat.takoli.ui.activities
 
 import android.app.Activity
 import android.content.Intent
@@ -21,12 +21,12 @@ import com.benfica.app.utils.RealStoragePathLibrary
 import com.bumptech.glide.Glide
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.mikepenz.ionicons_typeface_library.Ionicons
-import com.mysqldatabase.app.R
-import com.mysqldatabase.app.data.Status
-import com.mysqldatabase.app.data.models.Meme
-import com.mysqldatabase.app.ui.base.BaseActivity
-import com.mysqldatabase.app.ui.viewmodels.MemesViewModel
-import com.mysqldatabase.app.utils.*
+import com.panchayat.takoli.R
+import com.panchayat.takoli.data.Status
+import com.panchayat.takoli.data.models.Meme
+import com.panchayat.takoli.ui.base.BaseActivity
+import com.panchayat.takoli.ui.viewmodels.MemesViewModel
+import com.panchayat.takoli.utils.*
 import com.theartofdev.edmodo.cropper.CropImage
 import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.activity_post.*
@@ -69,7 +69,7 @@ class PostMemeActivity : BaseActivity() {
             setDisplayHomeAsUpEnabled(true)
             title = null
         }
-        postTag.addTextChangedListener(MaskWatcher("##-##-##"))
+      //  postTag.addTextChangedListener(MaskWatcher("##-##"))
         postCaption.setOnTouchListener(object : View.OnTouchListener {
             override fun onTouch(v: View?, event: MotionEvent?): Boolean {
                 if (postCaption.hasFocus()) {
@@ -150,7 +150,7 @@ class PostMemeActivity : BaseActivity() {
                     hideLoading()
                     showSelectImage()
                     sessionManager.hasNewContent(true)
-                    toast("Meme posted \uD83E\uDD2A\uD83E\uDD2A")
+                    toast("View posted \uD83E\uDD2A\uD83E\uDD2A")
                     finish()
                 }
 
@@ -179,7 +179,7 @@ class PostMemeActivity : BaseActivity() {
         }
 
         if (imageUri == null || !imageSelected) {
-            toast("Please select a meme")
+            toast("Please select a photo/video")
             return
         }
         if (postCaption.text.toString().trim().isEmpty()) {
@@ -188,8 +188,8 @@ class PostMemeActivity : BaseActivity() {
             return
         }
         if (postTag.text.toString().trim().isEmpty()) {
-            toast("Please add Plate no.")
-            postTag.setError("Please add Plate no.")
+            toast("Please add candidate.")
+            postTag.setError("Please add candidate name.")
             return
         }
         // ThumbnailUtils.createVideoThumbnail(File((imageUri as Uri).path), Size(100,100),null)

@@ -69,6 +69,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/DrawerTextView"
+            android:visibility="gone"
             android:text="@string/label_terms"/>
 
         <TextView
@@ -83,6 +84,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@style/DrawerTextView"
+            android:visibility="gone"
             android:text="@string/label_more_apps"/>
 
         <LinearLayout

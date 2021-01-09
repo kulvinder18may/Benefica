@@ -1,7 +1,7 @@
-package com.mysqldatabase.app.ui.callbacks
+package com.panchayat.takoli.ui.callbacks
 
 import android.view.View
-import com.mysqldatabase.app.data.models.Fave
+import com.panchayat.takoli.data.models.Fave
 import com.makeramen.roundedimageview.RoundedImageView
 
 interface FavesCallback {

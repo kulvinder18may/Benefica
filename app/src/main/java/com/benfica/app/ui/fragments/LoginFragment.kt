@@ -1,4 +1,4 @@
-package com.mysqldatabase.app.ui.fragments
+package com.panchayat.takoli.ui.fragments
 
 
 import android.content.Intent
@@ -10,16 +10,16 @@ import android.widget.EditText
 import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import com.mysqldatabase.app.R
-import com.mysqldatabase.app.data.Status
-import com.mysqldatabase.app.data.models.User
-import com.mysqldatabase.app.ui.base.BaseFragment
-import com.mysqldatabase.app.ui.viewmodels.UsersViewModel
-import com.mysqldatabase.app.utils.AppUtils
-import com.mysqldatabase.app.utils.AppUtils.getDrawable
-import com.mysqldatabase.app.utils.TimeFormatter
-import com.mysqldatabase.app.utils.replaceFragment
-import com.mysqldatabase.app.utils.setDrawable
+import com.panchayat.takoli.R
+import com.panchayat.takoli.data.Status
+import com.panchayat.takoli.data.models.User
+import com.panchayat.takoli.ui.base.BaseFragment
+import com.panchayat.takoli.ui.viewmodels.UsersViewModel
+import com.panchayat.takoli.utils.AppUtils
+import com.panchayat.takoli.utils.AppUtils.getDrawable
+import com.panchayat.takoli.utils.TimeFormatter
+import com.panchayat.takoli.utils.replaceFragment
+import com.panchayat.takoli.utils.setDrawable
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.SignInButton
@@ -65,11 +65,11 @@ class LoginFragment : BaseFragment() {
 
         initLoginObserver()
         initUserObserver()
-       // initGoogleLoginObserver()
+        initGoogleLoginObserver()
         initPasswordResetObserver()
 
         loginButton.setOnClickListener { login() }
-       // googleLogin.setOnClickListener { loginWithGoogle() }
+        googleLogin.setOnClickListener { loginWithGoogle() }
         loginForgotPassword.setOnClickListener { if (!isLoggingIn) forgotPassword() else activity!!.toast("Please wait...")}
     }
 

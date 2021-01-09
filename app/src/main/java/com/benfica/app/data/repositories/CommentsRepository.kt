@@ -1,11 +1,11 @@
-package com.mysqldatabase.app.data.repositories
+package com.panchayat.takoli.data.repositories
 
-import com.mysqldatabase.app.data.Result
-import com.mysqldatabase.app.data.models.Comment
-import com.mysqldatabase.app.data.models.Meme
-import com.mysqldatabase.app.data.wrappers.ObservableComment
-import com.mysqldatabase.app.utils.Constants
-import com.mysqldatabase.app.utils.get
+import com.panchayat.takoli.data.Result
+import com.panchayat.takoli.data.models.Comment
+import com.panchayat.takoli.data.models.Meme
+import com.panchayat.takoli.data.wrappers.ObservableComment
+import com.panchayat.takoli.utils.Constants
+import com.panchayat.takoli.utils.get
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query

@@ -1,16 +1,16 @@
-package com.mysqldatabase.app.ui.adapters
+package com.panchayat.takoli.ui.adapters
 
 import android.view.ViewGroup
 import androidx.paging.PagedList
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.mysqldatabase.app.R
-import com.mysqldatabase.app.data.models.Notification
-import com.mysqldatabase.app.databinding.ItemNotificationBinding
-import com.mysqldatabase.app.ui.callbacks.NotificationsCallback
-import com.mysqldatabase.app.utils.TimeFormatter
-import com.mysqldatabase.app.utils.inflate
+import com.panchayat.takoli.R
+import com.panchayat.takoli.data.models.Notification
+import com.panchayat.takoli.databinding.ItemNotificationBinding
+import com.panchayat.takoli.ui.callbacks.NotificationsCallback
+import com.panchayat.takoli.utils.TimeFormatter
+import com.panchayat.takoli.utils.inflate
 import timber.log.Timber
 
 

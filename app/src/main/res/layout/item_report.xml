@@ -6,15 +6,15 @@
     <data>
         <variable
             name="report"
-            type="com.mysqldatabase.app.data.models.Report" />
+            type="com.panchayat.takoli.data.models.Report" />
 
         <variable
             name="callback"
-            type="com.mysqldatabase.app.ui.callbacks.ReportsCallback" />
+            type="com.panchayat.takoli.ui.callbacks.ReportsCallback" />
 
         <variable
             name="formatter"
-            type="com.mysqldatabase.app.utils.TimeFormatter" />
+            type="com.panchayat.takoli.utils.TimeFormatter" />
 
     </data>
 

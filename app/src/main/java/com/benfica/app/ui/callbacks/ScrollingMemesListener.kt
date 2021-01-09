@@ -1,4 +1,4 @@
-package com.mysqldatabase.app.ui.callbacks
+package com.panchayat.takoli.ui.callbacks
 
 interface ScrollingMemesListener {
     fun hideFab()

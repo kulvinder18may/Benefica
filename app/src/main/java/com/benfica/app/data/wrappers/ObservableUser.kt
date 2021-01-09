@@ -1,6 +1,6 @@
-package com.mysqldatabase.app.data.wrappers
+package com.panchayat.takoli.data.wrappers
 
-import com.mysqldatabase.app.data.models.User
+import com.panchayat.takoli.data.models.User
 import io.reactivex.Observable
 
 data class ObservableUser (

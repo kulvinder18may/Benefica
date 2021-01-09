@@ -1,8 +1,8 @@
-package com.mysqldatabase.app.ui.callbacks
+package com.panchayat.takoli.ui.callbacks
 
 import android.view.View
-import com.mysqldatabase.app.data.models.Meme
-import com.mysqldatabase.app.data.models.User
+import com.panchayat.takoli.data.models.Meme
+import com.panchayat.takoli.data.models.User
 import de.hdodenhof.circleimageview.CircleImageView
 
 interface MemesCallback {

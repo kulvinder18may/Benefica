@@ -1,6 +1,6 @@
-package com.mysqldatabase.app.data.models
+package com.panchayat.takoli.data.models
 
-import com.mysqldatabase.app.utils.Constants
+import com.panchayat.takoli.utils.Constants
 import java.io.Serializable
 
 data class User(

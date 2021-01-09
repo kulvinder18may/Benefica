@@ -1,17 +1,17 @@
-package com.mysqldatabase.app.ui.adapters
+package com.panchayat.takoli.ui.adapters
 
 import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.mysqldatabase.app.R
-import com.mysqldatabase.app.data.models.Report
-import com.mysqldatabase.app.databinding.ItemReportBinding
-import com.mysqldatabase.app.ui.callbacks.ReportsCallback
-import com.mysqldatabase.app.utils.AppUtils
-import com.mysqldatabase.app.utils.TimeFormatter
-import com.mysqldatabase.app.utils.inflate
-import com.mysqldatabase.app.utils.setDrawable
+import com.panchayat.takoli.R
+import com.panchayat.takoli.data.models.Report
+import com.panchayat.takoli.databinding.ItemReportBinding
+import com.panchayat.takoli.ui.callbacks.ReportsCallback
+import com.panchayat.takoli.utils.AppUtils
+import com.panchayat.takoli.utils.TimeFormatter
+import com.panchayat.takoli.utils.inflate
+import com.panchayat.takoli.utils.setDrawable
 import com.mikepenz.ionicons_typeface_library.Ionicons
 
 

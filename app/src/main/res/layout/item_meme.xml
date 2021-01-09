@@ -7,19 +7,19 @@
     xmlns:bind="http://schemas.android.com/tools">
 
     <data>
-        <import type="com.mysqldatabase.app.R"/>
+        <import type="com.panchayat.takoli.R"/>
 
         <variable
             name="meme"
-            type="com.mysqldatabase.app.data.models.Meme" />
+            type="com.panchayat.takoli.data.models.Meme" />
 
         <variable
             name="callback"
-            type="com.mysqldatabase.app.ui.callbacks.MemesCallback" />
+            type="com.panchayat.takoli.ui.callbacks.MemesCallback" />
 
         <variable
             name="timeFormatter"
-            type="com.mysqldatabase.app.utils.TimeFormatter" />
+            type="com.panchayat.takoli.utils.TimeFormatter" />
     </data>
 
     <RelativeLayout
@@ -113,6 +113,7 @@
             android:layout_below="@id/memeTop"
             android:layout_marginTop="12dp"
             android:textSize="15sp"
+            android:autoLink="web"
             tools:text="Do y'all agree with this?"
             bind:visibility="@{meme.caption != null &amp;&amp; meme.caption != `` &amp;&amp; meme.caption != ` `}"
             android:text="@{meme.caption}"

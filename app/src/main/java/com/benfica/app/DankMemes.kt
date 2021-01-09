@@ -1,12 +1,12 @@
-package com.mysqldatabase.app
+package com.panchayat.takoli
 
 import android.content.Context
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.multidex.MultiDexApplication
 import cat.ereza.customactivityoncrash.config.CaocConfig
-import com.mysqldatabase.app.di.*
-import com.mysqldatabase.app.utils.Constants
-import com.mysqldatabase.app.utils.SessionManager
+import com.panchayat.takoli.di.*
+import com.panchayat.takoli.utils.Constants
+import com.panchayat.takoli.utils.SessionManager
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.FirebaseApp
 import com.google.firebase.database.FirebaseDatabase

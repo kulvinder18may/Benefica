@@ -7,15 +7,15 @@
 
     <data>
 
-        <import type="com.mysqldatabase.app.R" />
+        <import type="com.panchayat.takoli.R" />
 
         <variable
             name="user"
-            type="com.mysqldatabase.app.data.models.User" />
+            type="com.panchayat.takoli.data.models.User" />
 
         <variable
             name="callback"
-            type="com.mysqldatabase.app.ui.callbacks.ProfileMemesCallback" />
+            type="com.panchayat.takoli.ui.callbacks.ProfileMemesCallback" />
 
         <variable
             name="isMe"

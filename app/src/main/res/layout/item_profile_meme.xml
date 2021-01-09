@@ -5,18 +5,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <import type="com.mysqldatabase.app.R"/>
+        <import type="com.panchayat.takoli.R"/>
 
         <variable
             name="meme"
-            type="com.mysqldatabase.app.data.models.Meme" />
+            type="com.panchayat.takoli.data.models.Meme" />
 
         <variable
             name="callback"
-            type="com.mysqldatabase.app.ui.callbacks.ProfileMemesCallback" />
+            type="com.panchayat.takoli.ui.callbacks.ProfileMemesCallback" />
     </data>
 
-    <com.mysqldatabase.app.utils.SquareLayout
+    <com.panchayat.takoli.utils.SquareLayout
         android:id="@+id/parent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -30,5 +30,5 @@
             bind:image="@{meme.imageUrl}"
             bind:placeholder="@{@drawable/loading}"/>
 
-    </com.mysqldatabase.app.utils.SquareLayout>
+    </com.panchayat.takoli.utils.SquareLayout>
 </layout>

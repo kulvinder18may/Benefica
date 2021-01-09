@@ -1,13 +1,13 @@
-package com.mysqldatabase.app.ui.activities
+package com.panchayat.takoli.ui.activities
 
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
-import com.mysqldatabase.app.R
-import com.mysqldatabase.app.ui.base.BaseActivity
-import com.mysqldatabase.app.ui.fragments.LoginFragment
-import com.mysqldatabase.app.ui.fragments.SignupFragment
-import com.mysqldatabase.app.utils.addFragment
+import com.panchayat.takoli.R
+import com.panchayat.takoli.ui.base.BaseActivity
+import com.panchayat.takoli.ui.fragments.LoginFragment
+import com.panchayat.takoli.ui.fragments.SignupFragment
+import com.panchayat.takoli.utils.addFragment
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
 import org.jetbrains.anko.toast

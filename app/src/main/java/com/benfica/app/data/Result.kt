@@ -1,4 +1,4 @@
-package com.mysqldatabase.app.data
+package com.panchayat.takoli.data
 
 sealed class Result<out T : Any>{
     data class Success<out T : Any>(val data: T) : Result<T>()

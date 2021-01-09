@@ -1,9 +1,9 @@
-package com.mysqldatabase.app.di
+package com.panchayat.takoli.di
 
-import com.mysqldatabase.app.R
-import com.mysqldatabase.app.data.repositories.*
-import com.mysqldatabase.app.ui.viewmodels.*
-import com.mysqldatabase.app.utils.SessionManager
+import com.panchayat.takoli.R
+import com.panchayat.takoli.data.repositories.*
+import com.panchayat.takoli.ui.viewmodels.*
+import com.panchayat.takoli.utils.SessionManager
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase

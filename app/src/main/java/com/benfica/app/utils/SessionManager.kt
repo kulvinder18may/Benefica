@@ -1,11 +1,11 @@
-package com.mysqldatabase.app.utils
+package com.panchayat.takoli.utils
 
 import android.content.Context
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatDelegate
-import com.mysqldatabase.app.data.models.User
-import com.mysqldatabase.app.utils.PreferenceHelper.set
-import com.mysqldatabase.app.utils.PreferenceHelper.get
+import com.panchayat.takoli.data.models.User
+import com.panchayat.takoli.utils.PreferenceHelper.set
+import com.panchayat.takoli.utils.PreferenceHelper.get
 import timber.log.Timber
 
 class SessionManager (context: Context) {

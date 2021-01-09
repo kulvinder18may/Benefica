@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="com.mysqldatabase.app.R"/>
+        <import type="com.panchayat.takoli.R"/>
 
         <variable
             name="message"

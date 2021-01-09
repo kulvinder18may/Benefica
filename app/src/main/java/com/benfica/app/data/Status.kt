@@ -1,4 +1,4 @@
-package com.mysqldatabase.app.data
+package com.panchayat.takoli.data
 
 enum class Status {
     LOADING,
